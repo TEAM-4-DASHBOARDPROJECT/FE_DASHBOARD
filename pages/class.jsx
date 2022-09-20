@@ -6,21 +6,32 @@ function AddNew(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Add New Mentee</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Add New Class</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
           <Row>
             <Col xs={12} md={12}>
               <label className="me-5 mb-5">Name</label>
-              <input></input>
+              <input placeholder="Nama"></input>
             </Col>
           </Row>
-
           <Row>
             <Col xs={12} md={12}>
-              <label className="me-1">Total Mentee</label>
-              <input></input>
+              <label className="me-5 mb-5">Total Mentee</label>
+              <input placeholder="Total Mente" type="number"></input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <label className="me-5 mb-5">Tanggal Mulai</label>
+              <input type="date"></input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <label className="me-5 mb-5">Tanggal Selesai</label>
+              <input type="date"></input>
             </Col>
           </Row>
         </Container>
@@ -43,14 +54,25 @@ function Edit(props) {
           <Row>
             <Col xs={12} md={12}>
               <label className="me-5 mb-5">Name</label>
-              <input></input>
+              <input placeholder="Nama"></input>
             </Col>
           </Row>
-
           <Row>
             <Col xs={12} md={12}>
-              <label className="me-1">Total Mentee</label>
-              <input></input>
+              <label className="me-5 mb-5">Total Mentee</label>
+              <input placeholder="Total Mente" type="number"></input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <label className="me-5 mb-5">Tanggal Mulai</label>
+              <input type="date"></input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <label className="me-5 mb-5">Tanggal Selesai</label>
+              <input type="date"></input>
             </Col>
           </Row>
         </Container>
@@ -63,7 +85,9 @@ function Edit(props) {
 }
 
 const Class = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShowNew, setModalNew] = useState(false);
+  const [modalShowEdit, setModalEdit] = useState(false);
+
   return (
     <div className="main-container d-flex">
       <Sidebar />
@@ -82,8 +106,8 @@ const Class = () => {
           <div className="searchbutton">
             <input type="search"></input>
             <button>Search</button>
-            <button onClick={() => setModalShow(true)}>Add New</button>
-            <AddNew show={modalShow} onHide={() => setModalShow(false)} />
+            <button onClick={() => setModalNew(true)}>Add New</button>
+            <AddNew show={modalShowNew} onHide={() => setModalNew(false)} />
           </div>
         </div>
         <div className="tableclass">
@@ -93,6 +117,8 @@ const Class = () => {
                 <th>#</th>
                 <th>Class Name</th>
                 <th>Total Mentee</th>
+                <th>Tanggal Mulai</th>
+                <th>Tanggal Selesai</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -102,9 +128,11 @@ const Class = () => {
                 <td>1</td>
                 <td>Front End Batch 7</td>
                 <td>21</td>
+                <td>1 Januari 2022</td>
+                <td>1 April 2022</td>
                 <td>
-                  <button onClick={() => setModalShow(true)}>Edit</button>
-                  <Edit show={modalShow} onHide={() => setModalShow(false)} />
+                  <button onClick={() => setModalEdit(true)}>Edit</button>
+                  <Edit show={modalShowEdit} onHide={() => setModalEdit(false)} />
                 </td>
                 <td>
                   <button>Delete</button>

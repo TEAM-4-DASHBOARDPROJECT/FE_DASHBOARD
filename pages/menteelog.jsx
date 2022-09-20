@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../component/sidebar";
-import { Row, Col, Modal, Container, Button, Dropdown } from "react-bootstrap";
+import { Row, Col, Modal, Container, Button, Form } from "react-bootstrap";
 
 function AddNewLog(props) {
   return (
@@ -12,17 +12,12 @@ function AddNewLog(props) {
         <Container>
           <Row>
             <Col xs={12} md={8}>
-              <Dropdown>
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                  Status
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Active</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Repeat</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Dropout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <Form.Select aria-label="Default select example">
+                <option>Status</option>
+                <option value="1">Active</option>
+                <option value="2">Repeat</option>
+                <option value="3">Dropout</option>
+              </Form.Select>
             </Col>
             <Col xs={6} md={4}>
               Date:

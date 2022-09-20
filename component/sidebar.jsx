@@ -14,13 +14,13 @@ const Sidebar = () => {
           <a href="/dashboard">Dashboard</a>
         </div>
         <div className="menu">
-          <a href="/mentee">Mentee</a>
+          <a href="/menteelist">Mentee List</a>
         </div>
         <div className="menu">
           <a href="/menteelog">Mentee Log</a>
         </div>
         <div className="menu">
-          <a href="/addmente">Add Mentee</a>
+          <a href="/addnewmentee">Add Mentee</a>
         </div>
         <div className="menu">
           <a href="">User</a>
