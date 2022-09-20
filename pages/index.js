@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const goDashboard = () => {
     Router.push({
-      pathname: "/dashboard/dashboard",
+      pathname: "/dashboard",
     });
   };
   return (
