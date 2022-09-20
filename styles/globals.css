@@ -24,21 +24,123 @@ a {
   }
 }
 
-.navbar {
-  width: 418px;
+/* mulai style sidebar */
+#side_nav {
+  min-width: 400px;
+  max-width: 400px;
   background-color: #1b345f;
-  height: 100vh;
-  align-content: flex-start;
+  min-height: 100%;
+  position: fixed;
+  z-index: 1;
 }
 
-.navbar .log {
-  margin-left: 93px;
+.isisidebar {
+  margin: auto;
   margin-top: 16px;
-  margin-right: 88px;
-  margin-bottom: 82px;
 }
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #fff;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f7731c;
+}
+
+.logo {
+  margin-bottom: 82px;
+  margin-top: 16px;
+  margin: auto;
+}
+
+.menu {
+  border-top: #fff solid 2px;
+  width: 400px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 1023px) {
+  #side_nav {
+    margin-left: -400px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+  }
+}
+/* akhir style sidebar */
+
+/* mulai style mentee log pages */
+.menteelog {
+  margin-top: 10px;
+  margin-left: 260px;
+  min-width: 1022px;
+  border-bottom: #1b345f solid 1px;
+}
+
+.menteelog h1 {
+  font-size: 32px;
+  color: #1b345f;
+}
+
+.menteelog h2 {
+  font-size: 28px;
+  color: #1b345f;
+  font-weight: 300;
+}
+
+.hello {
+  font-size: 28px;
+  color: #1b345f;
+  font-weight: 300;
+  margin-top: 38px;
+  margin-right: 20px;
+}
+
+.hello .name {
+  font-size: 32px;
+  color: #1b345f;
+  font-weight: 600;
+}
+
+.menteelog2 {
+  margin-left: 220px;
+  min-width: 1022px;
+  color: #1b345f;
+}
+
+.button1 {
+  color: #ffffff;
+  background-color: #f7731c;
+  border-radius: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: #f7731c;
+  float: right;
+  margin-top: 40px;
+}
+
+.cardlog {
+  width: 950px;
+  height: auto;
+  border: #dbe5fa solid 2px;
+  margin-top: 100px;
+  margin-left: 380px;
+  padding: 30px;
+  color: #1b345f;
+}
+
+/* akhir style mentee log pages */
+
 .log-page{
   display: flex;
   flex-wrap: wrap;
   height: 0;
 }
+
