@@ -135,4 +135,12 @@ a {
   padding: 30px;
   color: #1b345f;
 }
+
 /* akhir style mentee log pages */
+
+.log-page{
+  display: flex;
+  flex-wrap: wrap;
+  height: 0;
+}
+
