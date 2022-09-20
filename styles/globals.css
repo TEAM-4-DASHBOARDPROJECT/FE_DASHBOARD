@@ -138,7 +138,18 @@ a {
 
 /* akhir style mentee log pages */
 
-.log-page{
+/* Awal Style Class */
+.searchbutton {
+  margin-top: 60px;
+  float: right;
+}
+
+.tableclass {
+  margin-top: 140px;
+}
+
+/* Akhir Style Class */
+.log-page {
   display: flex;
   flex-wrap: wrap;
   height: 0;
@@ -161,3 +172,4 @@ a {
   display: flex;
   justify-content: flex-end;
 }
+
