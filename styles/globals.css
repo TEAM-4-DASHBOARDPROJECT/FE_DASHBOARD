@@ -37,3 +37,8 @@ a {
   margin-right: 88px;
   margin-bottom: 82px;
 }
+.log-page{
+  display: flex;
+  flex-wrap: wrap;
+  height: 0;
+}
