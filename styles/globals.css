@@ -154,3 +154,22 @@ a {
   flex-wrap: wrap;
   height: 0;
 }
+
+/* add new mentee */
+.newmentee{
+  margin-top: 10px;
+  margin-left: 260px;
+  min-width: 1022px;
+  border-bottom: #1b345f solid 1px;
+  display: flex;
+  justify-content: space-around;
+}
+.formnewmentee{
+  display: flex;
+  justify-content: center;
+}
+.save{
+  display: flex;
+  justify-content: flex-end;
+}
+
