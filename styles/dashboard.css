@@ -1,0 +1,57 @@
+.condash {
+  padding-bottom: 50px;
+}
+
+.col2{
+    padding-top: 50px;
+}
+
+.div0 {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.div1 {
+  width: 250px;
+  height: 250px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: solid;
+  border-color: #dbe5fa;
+}
+
+.div2 {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: solid;
+  border-color: #dbe5fa;
+}
+
+.div3 {
+  width: 250px;
+  height: 250px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: solid;
+  border-color: #dbe5fa;
+}
+
+.div4 {
+  padding-top: 40px;
+}
+
+.col2 h1 {
+  padding-top: 50px;
+  font-size: 60px;
+  color: #1B345F;
+}
+
+h5 {
+  padding-top: 40px;
+  color: #1B345F;
+}
