@@ -23,7 +23,7 @@ const Sidebar = () => {
           <a href="/addnewmentee">Add Mentee</a>
         </div>
         <div className="menu">
-          <a href="">User</a>
+          <a href="/userlist">User</a>
         </div>
         <div className="menu">
           <a href="/class">Class</a>
