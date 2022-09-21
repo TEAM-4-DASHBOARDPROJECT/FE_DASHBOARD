@@ -1,8 +1,8 @@
-import React from 'react';
-import Sidebar from '../component/sidebar';
-import Greeting from '../component/greeting';
-import Chart from '../component/chart';
-import { Container, Row, Col } from 'react-bootstrap';
+import React from "react";
+import Sidebar from "../component/sidebar";
+import Greeting from "../component/greeting";
+import Chart from "../component/chart";
+import { Container, Row, Col } from "react-bootstrap";
 
 const dashboard = () => {
   return (
