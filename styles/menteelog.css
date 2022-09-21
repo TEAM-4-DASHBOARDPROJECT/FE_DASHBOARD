@@ -9,3 +9,38 @@
 .colr {
   margin-left: 60px;
 }
+
+@media (max-width: 1044px) {
+  .colr {
+    margin-left: 70px;
+  }
+  .colr2 {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .colr2 {
+    margin-right: 60px;
+  }
+  .button1 {
+    margin-right: 40px;
+  }
+  .log {
+    margin-right: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .colr2 {
+    margin-right: 60px;
+  }
+  .button1 {
+    margin-right: 40px;
+  }
+  .log {
+    margin-right: 40px;
+  }
+  .colr {
+    margin-left: 50px;
+  }
+}

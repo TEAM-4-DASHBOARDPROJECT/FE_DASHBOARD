@@ -53,23 +53,23 @@ const Menteelog = () => {
   return (
     <div>
       <Row>
-        <Col md={{ span: 4, offset: 0 }} className="col1">
+        <Col lg={{ span: 4, offset: 0 }} className="col1">
           <Sidebar />
         </Col>
-        <Col md={{ span: 7, offset: 0 }} className="col2">
-          <div>
+        <Col lg={{ span: 8, offset: 0 }} className="col2">
+          <div className="colr2">
             <Greeting title="Mentee Log" />
           </div>
           <div className="colr">
             <div>
               <Row>
-                <Col>
+                <Col sm={12} md={6}>
                   <h1 className="fs-3 pt-0">Rachman Kamil</h1>
                   <h2 className="fs-6">Quality Enggineer Batch 8</h2>
                   <h2 className="fs-6">IPA</h2>
                   <h2 className="fs-6">SMA N 29 Palembang</h2>
                 </Col>
-                <Col>
+                <Col sm={12} md={6}>
                   <h2 className="fs-6">Phone : 08218341294</h2>
                   <h2 className="fs-6">Telegram:@Rachman</h2>
                   <h2 className="fs-6">Discord:@Rachman</h2>

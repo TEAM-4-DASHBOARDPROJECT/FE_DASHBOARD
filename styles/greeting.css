@@ -26,3 +26,17 @@
 .colgreet1 h2 {
   color: #f7731c;
 }
+
+@media (max-width: 767px) {
+  .hellogreet {
+    font-size: 28px;
+    color: #1b345f;
+    font-weight: 300;
+    margin-top: 40px;
+    margin-left: 10px;
+  }
+  .congreet {
+    padding-bottom: 20px;
+    margin-left: 20px;
+  }
+}
