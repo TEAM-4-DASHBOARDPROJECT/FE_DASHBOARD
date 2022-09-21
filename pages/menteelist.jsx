@@ -25,6 +25,12 @@ const menteelist = () => {
     });
   };
 
+  const logOut = () => {
+    Router.push({
+      pathname: '/',
+    });
+  };
+
   return (
     <div className="condash">
       <Row>
@@ -33,7 +39,7 @@ const menteelist = () => {
         </Col>
         <Col md={{ span: 8, offset: 0 }} className="col2">
           <div>
-            <Greeting title="Mentee" />
+            <Greeting title="Mentee" clickLogOut={() => logOut()} />
           </div>
             <div className="searchbutton">
               <InputGroup>

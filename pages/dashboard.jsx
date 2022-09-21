@@ -3,8 +3,15 @@ import Sidebar from "../component/sidebar";
 import Greeting from "../component/greeting";
 import Chart from "../component/chart";
 import { Container, Row, Col } from "react-bootstrap";
+import Router from 'next/router';
 
 const dashboard = () => {
+  const logOut = () => {
+    Router.push({
+      pathname: '/',
+    });
+  };
+
   return (
     <div className="condash">
       <Row>
@@ -13,7 +20,7 @@ const dashboard = () => {
         </Col>
         <Col md={{ span: 8, offset: 0 }} className="col2">
           <div>
-            <Greeting title="Dashboard" />
+            <Greeting title="Dashboard" clickLogOut={() => logOut()} />
           </div>
           <div className="div0">
             <div className="div1">
