@@ -1,27 +1,28 @@
-import React from 'react';
-import { Chart as ChartJS } from 'chart.js/auto';
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Line } from "react-chartjs-2";
 
 const Chart = () => {
   return (
     <Line
+      className="chartt"
       data={{
-        labels: ['June','July','August', 'September',],
+        labels: ["June", "July", "August", "September"],
         datasets: [
           {
-            label: 'Mantee Active',
+            label: "Mantee Active",
             data: [12, 15, 20, 25],
-            borderColor: 'red',
+            borderColor: "red",
           },
           {
-            label: 'Mantee Placement',
+            label: "Mantee Placement",
             data: [3, 4, 2, 4],
-            borderColor: 'blue',
+            borderColor: "blue",
           },
           {
-            label: 'Mantee Feedback',
+            label: "Mantee Feedback",
             data: [10, 13, 15, 12],
-            borderColor: 'green',
+            borderColor: "green",
           },
         ],
       }}
