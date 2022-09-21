@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../component/sidebar";
-import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Modal, Button, Container, Row, Col, Table } from "react-bootstrap";
 
 function AddNew(props) {
   return (
@@ -82,6 +82,36 @@ const menteelist = () => {
             <button onClick={() => setModalNew(true)}>Add New</button>
             <AddNew show={modalShowNew} onHide={() => setModalNew(false)} />
           </div>
+        </div>
+        <div className="tableclass">
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th>Genre</th>
+                <th>Detail</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Yoga</td>
+                <td>FE 8</td>
+                <td>Active</td>
+                <td>IT</td>
+                <td>Male</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </Table>
         </div>
       </div>
     </div>

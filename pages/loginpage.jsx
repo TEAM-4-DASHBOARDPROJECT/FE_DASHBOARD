@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import Link from "next/link";
 import img from "../picture/login.png";
 
 const LoginPage = () => {
@@ -26,14 +27,18 @@ const LoginPage = () => {
                                 <Col><Form.Control type="password" placeholder="Password" /></Col>
                             </Form.Group>
                         </Row>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
+                        <Row style={{float:"right"}}>
+                            <Form.Group>
+                                <Link href="/resetpassword" >Reset Password</Link>
+                            </Form.Group>
+                        </Row>
 
                     </Form>
-                    <Button className="button" style={{background:"#F07539", width:"209px"}}>
-                        LOGIN
-                    </Button>
+                    <div>
+                        <Button className="button" style={{background:"#F07539", width:"209px"}}>
+                            LOGIN
+                        </Button>
+                    </div>
             </Container>
         </div>
   )
