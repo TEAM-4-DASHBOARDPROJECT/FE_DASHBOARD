@@ -15,11 +15,11 @@ const dashboard = () => {
   return (
     <div className="condash">
       <Row>
-        <Col md={{ span: 4, offset: 0 }} className="col1">
+        <Col lg={{ span: 4, offset: 0 }} className="col1">
           <Sidebar />
         </Col>
-        <Col md={{ span: 8, offset: 0 }} className="col2">
-          <div>
+        <Col lg={{ span: 8, offset: 0 }} className="col2">
+          <div className="colr2">
             <Greeting title="Dashboard" clickLogOut={() => logOut()} />
           </div>
           <div className="div0">

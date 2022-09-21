@@ -1,28 +1,40 @@
 .buttonlist1 {
-    color: #ffffff;
-    background-color: #f7731c;
-    border-radius: 8px;
-    border: #f7731c;
+  color: #ffffff;
+  background-color: #f7731c;
+  border-radius: 8px;
+  border: #f7731c;
 }
 
 .buttonlist2 {
-    width: 80px;
-    height: 38px;
-    color: #ffffff;
-    background-color: #f7731c;
-    border-radius: 8px;
-    border: #f7731c;
+  width: 80px;
+  height: 38px;
+  color: #ffffff;
+  background-color: #f7731c;
+  border-radius: 8px;
+  border: #f7731c;
 }
 
 .buttonlist3 {
-    width: 80px;
-    height: 38px;
-    color: #ffffff;
-    background-color: #f7731c;
-    border-radius: 8px;
-    border: #f7731c;
+  width: 80px;
+  height: 38px;
+  color: #ffffff;
+  background-color: #f7731c;
+  border-radius: 8px;
+  border: #f7731c;
 }
 
 .prevlist {
-    color: #f7731c;
+  color: #f7731c;
+}
+
+@media (max-width: 1200px) {
+  .tableclass {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 984px) {
+  .tableclass {
+    margin-left: 20px;
+  }
 }
