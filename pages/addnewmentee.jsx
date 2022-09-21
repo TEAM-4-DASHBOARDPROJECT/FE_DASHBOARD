@@ -1,21 +1,13 @@
 import { Container, Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
 import Sidebar from '../component/sidebar'
+import Greeting from '../component/greeting';
 
 const addnewmentee = () => {
   return (
     <div className="main-container d-flex">
         <Sidebar />
         <div className="container">
-            <div className="newmentee">
-                <div>
-                    <h1>Immersive Dashboard</h1>
-                    <h2>Add New Mentee</h2>
-                </div>
-
-                <div className="hello">
-                    Hello, <span className="name">Yoga</span>
-                </div>
-            </div>
+        <Greeting title="Add Mentee" />
             <Container className="formnewmentee">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintext">

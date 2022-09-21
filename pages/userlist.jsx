@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, InputGroup, Form, Modal, Container, Row, Col, Table } from "react-bootstrap";
 import Sidebar from "../component/sidebar";
+import Greeting from '../component/greeting';
 
 function AddNewUser(props) {
   return (
@@ -170,16 +171,7 @@ const userlist = () => {
     <div className="main-container d-flex">
         <Sidebar />
         <div className="container">
-          <div className="newmentee">
-            <div>
-              <h1>Immersive Dashboard</h1>
-              <h2>User List</h2>
-            </div>
-
-            <div className="hello">
-              Hello, <span className="name">Yoga</span>
-            </div>
-          </div>
+        <Greeting title="User List" />
           <div className="searchbutton">
             <input type="search"></input>
             <button>Search</button>

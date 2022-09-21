@@ -1,18 +1,20 @@
 import React from 'react';
-import Sidebar from "../component/sidebar";
+import Sidebar from '../component/sidebar';
 import Greeting from '../component/greeting';
 import Chart from '../component/chart';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const dashboard = () => {
   return (
-    <div className='condash'>
+    <div className="condash">
       <Row>
         <Col md={{ span: 4, offset: 0 }} className="col1">
           <Sidebar />
         </Col>
         <Col md={{ span: 8, offset: 0 }} className="col2">
-            <Greeting />
+          <div>
+            <Greeting title="Dashboard" />
+          </div>
           <div className="div0">
             <div className="div1">
               <h1>52</h1>

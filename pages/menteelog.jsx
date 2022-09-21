@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../component/sidebar";
+import Greeting from '../component/greeting';
 import { Row, Col, Modal, Container, Button, Form } from "react-bootstrap";
 
 function AddNewLog(props) {
@@ -48,16 +49,7 @@ const Menteelog = () => {
     <div className="main-container d-flex">
       <Sidebar />
       <div className="container">
-        <div className="menteelog d-flex justify-content-around">
-          <div>
-            <h1>Immersive Dashboard</h1>
-            <h2>Mentee Log</h2>
-          </div>
-
-          <div className="hello">
-            Hello, <span className="name">Kamil</span>
-          </div>
-        </div>
+      <Greeting title="Mentee Log" />
 
         <div className="menteelog2 mt-4 d-flex justify-content-around">
           <div>

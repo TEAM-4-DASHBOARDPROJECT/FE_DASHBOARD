@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Greeting from '../component/greeting';
 import Sidebar from "../component/sidebar";
 import { Form, Modal, Button, Container, Row, Col, Table } from "react-bootstrap";
 
@@ -64,17 +65,9 @@ const menteelist = () => {
   return (
     <div className="main-container d-flex">
       <Sidebar />
-      <div className="container">
-        <div className="menteelog d-flex justify-content-around">
-          <div>
-            <h1>Immersive Dashboard</h1>
-            <h2>Class List</h2>
-          </div>
 
-          <div className="hello">
-            Hello, <span className="name">Kamil</span>
-          </div>
-        </div>
+      <div className="container">
+      <Greeting title="Mentee List" />
         <div>
           <div className="searchbutton">
             <input type="search"></input>
