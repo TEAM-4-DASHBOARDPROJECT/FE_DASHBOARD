@@ -5,9 +5,9 @@ import Greeting from '../component/greeting';
 const editmentee = () => {
   return (
     <div className="main-container d-flex">
-        <Sidebar />
+        <Sidebar  />
         <div className="container">
-        <Greeting title="Add Mentee" />
+        <Greeting title="Edit Mentee" />
             <Container className="formnewmentee">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
