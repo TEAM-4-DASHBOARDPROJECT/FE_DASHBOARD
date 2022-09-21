@@ -29,7 +29,7 @@ const LoginPage = () => {
                         </Row>
                         <Row style={{float:"right"}}>
                             <Form.Group>
-                                <Link href="/resetpassword" >Reset Password</Link>
+                                <Link href={"/resetpassword"} >Reset Password</Link>
                             </Form.Group>
                         </Row>
 
