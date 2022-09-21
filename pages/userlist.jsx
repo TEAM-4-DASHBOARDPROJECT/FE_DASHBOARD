@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, InputGroup, Form, Modal, Container, Row, Col, Table } from "react-bootstrap";
 import Sidebar from "../component/sidebar";
 import Greeting from '../component/greeting';
+import Router from 'next/router';
 
 function AddNewUser(props) {
   return (
@@ -167,11 +168,17 @@ const userlist = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
 
+  const logOut = () => {
+    Router.push({
+      pathname: '/',
+    });
+  };
+
   return (
     <div className="main-container d-flex">
         <Sidebar />
         <div className="container">
-        <Greeting title="User List" />
+        <Greeting title="User List" clickLogOut={() => logOut()} />
           <div className="searchbutton">
             <input type="search"></input>
             <button>Search</button>

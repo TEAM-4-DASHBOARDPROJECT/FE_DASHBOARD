@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import Sidebar from "../component/sidebar";
-import Greeting from "../component/greeting";
-import { Row, Col, Modal, Container, Button, Form } from "react-bootstrap";
-import { AiOutlineFileSearch } from "react-icons/ai";
+import React, { useState } from 'react';
+import Sidebar from '../component/sidebar';
+import Greeting from '../component/greeting';
+import { Row, Col, Modal, Container, Button, Form } from 'react-bootstrap';
+import { AiOutlineFileSearch } from 'react-icons/ai';
+import Router from 'next/router';
 
 function AddNewLog(props) {
   return (
@@ -50,6 +51,12 @@ function AddNewLog(props) {
 const Menteelog = () => {
   const [modalShow, setModalShow] = useState(false);
 
+  const logOut = () => {
+    Router.push({
+      pathname: '/',
+    });
+  };
+
   return (
     <div>
       <Row>
@@ -58,7 +65,7 @@ const Menteelog = () => {
         </Col>
         <Col lg={{ span: 8, offset: 0 }} className="col2">
           <div className="colr2">
-            <Greeting title="Mentee Log" />
+            <Greeting title="Mentee Log" clickLogOut={() => logOut()} />
           </div>
           <div className="colr">
             <div>

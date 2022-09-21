@@ -1,19 +1,18 @@
 .congreet {
   padding-bottom: 20px;
-  margin-left: 50px;
 }
 
 .hellogreet {
   font-size: 28px;
   color: #1b345f;
   font-weight: 300;
-  margin-top: 40px;
-  margin-left: 100px;
+  margin-top: 20px;
+  margin-left: 80px;
 }
 
 .hellogreet .name {
   font-size: 32px;
-  color: #1b345f;
+  color: #f7731c;
   font-weight: 600;
 }
 
@@ -40,3 +39,14 @@
     margin-left: 20px;
   }
 }
+
+.react-icons1 {
+  font-size: 40px;
+}
+
+.react-icons2 {
+  font-size: 30px;
+  margin-left: 240px;
+  color: #1b345f;
+}
+
