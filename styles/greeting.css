@@ -1,0 +1,26 @@
+.congreet {
+  padding-bottom: 20px;
+  margin-left: 50px;
+}
+
+.hellogreet {
+  font-size: 28px;
+  color: #1b345f;
+  font-weight: 300;
+  margin-top: 40px;
+}
+
+.hellogreet .name {
+  font-size: 32px;
+  color: #1b345f;
+  font-weight: 600;
+}
+
+.colgreet1 h1 {
+    padding-top: 0px;
+    font-size: 50px;
+}
+
+.colgreet1 h2 {
+    color: #F7731C;
+}
