@@ -58,7 +58,7 @@ a {
 }
 
 .menu {
-  border-top: #fff solid 2px;
+  /* border-top: #fff solid 2px; */
   width: 400px;
   margin-top: 5px;
   margin-bottom: 5px;

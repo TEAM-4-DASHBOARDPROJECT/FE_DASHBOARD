@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Greeting from '../component/greeting';
-import Sidebar from "../component/sidebar";
-import { Form, Modal, Button, Container, Row, Col, Table } from "react-bootstrap";
+import Sidebar from '../component/sidebar';
+import { Form, Modal, Button, Container, Row, Col, Table } from 'react-bootstrap';
+import Router from 'next/router';
 
 function AddNew(props) {
   return (
@@ -61,18 +62,30 @@ function AddNew(props) {
 }
 
 const menteelist = () => {
+  const addNewMentee = () => {
+    Router.push({
+      pathname: '/addnewmentee',
+    });
+  };
+
+  // const editMentee = () => {
+  //   Router.push({
+  //     pathname: '/addnewmentee',
+  //   });
+  // };
+
   const [modalShowNew, setModalNew] = useState(false);
   return (
     <div className="main-container d-flex">
       <Sidebar />
 
       <div className="container">
-      <Greeting title="Mentee List" />
+        <Greeting title="Mentee List" />
         <div>
           <div className="searchbutton">
             <input type="search"></input>
             <button>Search</button>
-            <button onClick={() => setModalNew(true)}>Add New</button>
+            <button onClick={() => addNewMentee()}>Add New</button>
             <AddNew show={modalShowNew} onHide={() => setModalNew(false)} />
           </div>
         </div>

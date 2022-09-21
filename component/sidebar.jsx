@@ -9,8 +9,9 @@ const Sidebar = () => {
       <div className="logo">
         <Image src={logo} alt="Picture of the author" width="237px" height="122px" />
       </div>
+
       <div className="isisidebar">
-        <div className="menu">
+        <div className="menudash">
           <a href="/dashboard">Dashboard</a>
         </div>
         <div className="menu">
@@ -22,7 +23,7 @@ const Sidebar = () => {
         <div className="menu">
           <a href="/addnewmentee">Add Mentee</a>
         </div>
-        <div className="menu">
+        <div className="menuser">
           <a href="/userlist">User</a>
         </div>
         <div className="menu">
