@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../component/sidebar";
 import Greeting from "../component/greeting";
 import { Row, Col, Modal, Container, Button, Form } from "react-bootstrap";
+import { AiOutlineFileSearch } from "react-icons/ai";
 
 function AddNewLog(props) {
   return (
@@ -50,48 +51,60 @@ const Menteelog = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <div className="main-container d-flex">
-      <Sidebar />
-      <div className="container">
-        <Greeting title="Mentee Log" />
-
-        <div className="menteelog2 mt-4 d-flex justify-content-around">
+    <div>
+      <Row>
+        <Col md={{ span: 4, offset: 0 }} className="col1">
+          <Sidebar />
+        </Col>
+        <Col md={{ span: 7, offset: 0 }} className="col2">
           <div>
-            <h1 className="fs-3">Rachman Kamil</h1>
-            <h2 className="fs-6">Quality Enggineer Batch 8</h2>
-            <h2 className="fs-6">IPA</h2>
-            <h2 className="fs-6">SMA N 29 Palembang</h2>
+            <Greeting title="Mentee Log" />
           </div>
-
-          <div className="mt-3">
-            <h2 className="fs-6">Phone : 08218341294</h2>
-            <h2 className="fs-6">Telegram:@Rachman</h2>
-            <h2 className="fs-6">Discord:@Rachman</h2>
-            <h2 className="fs-6">Email:Rachman@gmail.com</h2>
+          <div className="colr">
+            <div>
+              <Row>
+                <Col>
+                  <h1 className="fs-3 pt-0">Rachman Kamil</h1>
+                  <h2 className="fs-6">Quality Enggineer Batch 8</h2>
+                  <h2 className="fs-6">IPA</h2>
+                  <h2 className="fs-6">SMA N 29 Palembang</h2>
+                </Col>
+                <Col>
+                  <h2 className="fs-6">Phone : 08218341294</h2>
+                  <h2 className="fs-6">Telegram:@Rachman</h2>
+                  <h2 className="fs-6">Discord:@Rachman</h2>
+                  <h2 className="fs-6">Email:Rachman@gmail.com</h2>
+                </Col>
+              </Row>
+            </div>
+            <div>
+              <button onClick={() => setModalShow(true)} className="button1">
+                Add New Log
+              </button>
+              <AddNewLog show={modalShow} onHide={() => setModalShow(false)} />
+            </div>
+            <div className="log">
+              <Row>
+                <Col xs={3}>
+                  <div>
+                    <p>22 Oktober 2022</p>
+                    <p>End Of Section</p>
+                    <p className="fs-1">
+                      <AiOutlineFileSearch />
+                    </p>
+                  </div>
+                </Col>
+                <Col>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, et eos, perferendis similique porro commodi facere dolor placeat aliquid tenetur dolores sapiente eius rem dolorum recusandae animi neque consectetur. Iure?
+                  </div>
+                  <div className="mt-4 fw-bold ">Change Status : Continue To Session 2</div>
+                </Col>
+              </Row>
+            </div>
           </div>
-        </div>
-        <button onClick={() => setModalShow(true)} className="button1">
-          Add New Log
-        </button>
-        <AddNewLog show={modalShow} onHide={() => setModalShow(false)} />
-        <div className="cardlog">
-          <Row>
-            <Col xs={2}>
-              <div>
-                <p>22 Oktober 2022</p>
-                <p>End Of Section</p>
-                <p>ini file yang diuplod</p>
-              </div>
-            </Col>
-            <Col>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, et eos, perferendis similique porro commodi facere dolor placeat aliquid tenetur dolores sapiente eius rem dolorum recusandae animi neque consectetur. Iure?
-              </div>
-              <div className="mt-4 fw-bold ">Change Status : Continue To Session 2</div>
-            </Col>
-          </Row>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };

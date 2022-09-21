@@ -64,11 +64,11 @@ a {
   margin-bottom: 5px;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 991px) {
   #side_nav {
     margin-left: -400px;
     position: fixed;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 1;
   }
 }
@@ -152,7 +152,7 @@ a {
 }
 
 /* add new mentee */
-.newmentee{
+.newmentee {
   margin-top: 10px;
   margin-left: 260px;
   min-width: 1022px;
@@ -160,17 +160,17 @@ a {
   display: flex;
   justify-content: space-around;
 }
-.formnewmentee{
+.formnewmentee {
   display: flex;
   justify-content: center;
 }
-.save{
+.save {
   display: flex;
   justify-content: flex-end;
 }
 
 /* user list */
-.table-user{
+.table-user {
   display: flex;
   justify-content: end;
 }
