@@ -35,10 +35,6 @@ const resetpassword = () => {
                                 <Col><Form.Control type="password" placeholder="Retype Password" /></Col>
                             </Form.Group>
                         </Row>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
-
                     </Form>
                     <Button className="button" style={{background:"#F07539", width:"209px"}}>
                         Reset Password

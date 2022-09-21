@@ -180,29 +180,24 @@ const userlist = () => {
               Hello, <span className="name">Yoga</span>
             </div>
           </div>
-          <div>
-            <InputGroup>
-              <Form.Control
-                placeholder="Recipient's username"
-                aria-label="Recipient's username with two button addons"
-              />
-              <Button variant="outline-secondary">Search</Button>
-              <Button variant="info"  onClick={() => setModalShow(true)}>Add New</Button>
-              <AddNewUser show={modalShow} onHide={() => setModalShow(false)} />
-            </InputGroup>
+          <div className="searchbutton">
+            <input type="search"></input>
+            <button>Search</button>
+            <button onClick={() => setModalShow(true)}>Add New</button>
+            <AddNewUser show={modalShow} onHide={() => setModalShow(false)} />
           </div>
-        <div className="table-user">
-          <Table striped bordered hover>
+          <div className="tableclass">
+          <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th>No</th>
+                <th>No.</th>
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>Team</th>
                 <th>Role</th>
                 <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -210,31 +205,11 @@ const userlist = () => {
                 <td>1</td>
                 <td>Yoga</td>
                 <td>yoga@gmail.com</td>
-                <td>Academic</td>
+                <td>Acedemic</td>
                 <td>Default</td>
                 <td>Active</td>
-                <td>
-                  <Button variant="info"  onClick={() => setModalEdit(true)}>Edit New</Button>
-                  <EditNewUser show={modalEdit} onHide={() => setModalEdit(false)} />
-                </td>
-                <td>
-                  <Button variant="info">Delete</Button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Doffa</td>
-                <td>doffa@gmail.com</td>
-                <td>Placemenet</td>
-                <td>Default</td>
-                <td>Active</td>
-                {/* <td>
-                  <Button variant="info"  onClick={() => setModalEdit(true)}>Edit New</Button>
-                  <EditNewUser show={modalEdit} onHide={() => setModalEdit(false)} />
-                </td>
-                <td>
-                  <Button variant="info">Delete</Button>
-                </td> */}
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </Table>
