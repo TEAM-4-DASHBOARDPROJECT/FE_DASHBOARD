@@ -2,7 +2,7 @@ import { Container, Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
 import Sidebar from '../component/sidebar'
 import Greeting from '../component/greeting';
 
-const addnewmentee = () => {
+const editmentee = () => {
   return (
     <div className="main-container d-flex">
         <Sidebar />
@@ -206,4 +206,4 @@ const addnewmentee = () => {
   )
 }
 
-export default addnewmentee;
+export default editmentee;
