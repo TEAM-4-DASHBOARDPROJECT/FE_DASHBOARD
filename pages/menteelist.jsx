@@ -3,10 +3,28 @@ import Greeting from '../component/greeting';
 import Sidebar from "../component/sidebar";
 import { Form, Button, Row, Col, InputGroup, Table, Pagination } from "react-bootstrap";
 import Link from "next/link";
+import Router from 'next/router';
 import { AiFillWallet, AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const menteelist = () => {
-  
+  const addNewMentee = () => {
+    Router.push({
+      pathname: '/addnewmentee',
+    });
+  };
+
+  const editMentee = () => {
+    Router.push({
+      pathname: '/editmentee',
+    });
+  };
+
+  const menteeLog = () => {
+    Router.push({
+      pathname: '/menteelog',
+    });
+  };
+
   return (
     <div className="condash">
       <Row>
@@ -15,7 +33,7 @@ const menteelist = () => {
         </Col>
         <Col md={{ span: 8, offset: 0 }} className="col2">
           <div>
-            <Greeting title="Mentee List" />
+            <Greeting title="Mentee" />
           </div>
             <div className="searchbutton">
               <InputGroup>
@@ -23,13 +41,17 @@ const menteelist = () => {
                   placeholder="Search"
                   aria-label="Recipient's username with two button addons"
                 />
-                <Button variant="outline-secondary">Search</Button>
-                <Button variant="info"><Link href={"/addnewmentee"}>Add New</Link></Button>
+                <Button variant="outline-warning">Search</Button>
+                <button onClick={() => addNewMentee()} className="buttonlist1">
+                Add New
+              </button>
               </InputGroup>
             </div>
             <div className="d-flex flex-wrap" style={{marginTop:"70px", justifyContent:"flex-end"}}>
               <div style={{marginTop:"38px"}}>
-              <Button>Export</Button>
+              <button className="buttonlist2">
+                Export
+              </button>
               </div>
               <Form className="d-flex flex-wrap" style={{margin:"0px 15px"}}>
                 <Row>
@@ -79,7 +101,9 @@ const menteelist = () => {
                 </Row>
               </Form>
               <div style={{marginTop:"38px"}}>
-              <Button>Filter</Button>
+              <button className="buttonlist3">
+                Filter
+              </button>
               </div>
             </div>
             <div className="tableclass" style={{marginTop:"40px"}}>
@@ -105,8 +129,8 @@ const menteelist = () => {
                     <td>Active</td>
                     <td>IT</td>
                     <td>Male</td>
-                    <td><Link href={"/menteelog"}><AiFillWallet /></Link></td>
-                    <td><Link href={"/editmentee"}><AiFillEdit /></Link></td>
+                    <td onClick={() => menteeLog()}><AiFillWallet /></td>
+                    <td onClick={() => editMentee()}><AiFillEdit /></td>
                     <td><AiFillDelete /></td>
                   </tr>
                 </tbody>

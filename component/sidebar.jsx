@@ -6,23 +6,17 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <nav className="sidebar navbar navbar-expand d-flex flex-column alignt-item-start" id="side_nav">
-      <div className="logo">
+      <div className="logosb">
         <Image src={logo} alt="Picture of the author" width="237px" height="122px" />
       </div>
       <div className="isisidebar">
-        <div className="menu">
+        <div className="menudash">
           <a href="/dashboard">Dashboard</a>
         </div>
         <div className="menu">
-          <a href="/menteelist">Mentee List</a>
+          <a href="/menteelist">Mentee</a>
         </div>
-        <div className="menu">
-          <a href="/menteelog">Mentee Log</a>
-        </div>
-        <div className="menu">
-          <a href="/addnewmentee">Add Mentee</a>
-        </div>
-        <div className="menu">
+        <div className="menuser">
           <a href="/userlist">User</a>
         </div>
         <div className="menu">
