@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../component/sidebar";
-import Greeting from '../component/greeting';
+import Greeting from "../component/greeting";
 import { Row, Col, Modal, Container, Button, Form } from "react-bootstrap";
 
 function AddNewLog(props) {
@@ -25,11 +25,15 @@ function AddNewLog(props) {
               <input type="date"></input>
             </Col>
           </Row>
-
           <Row>
             <Col xs={12} md={12}>
               <p>Feedback</p>
               <input className="w-100 h-100" type="text-field"></input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12} className="my-5">
+              <input type="file"></input>
             </Col>
           </Row>
         </Container>
@@ -49,7 +53,7 @@ const Menteelog = () => {
     <div className="main-container d-flex">
       <Sidebar />
       <div className="container">
-      <Greeting title="Mentee Log" />
+        <Greeting title="Mentee Log" />
 
         <div className="menteelog2 mt-4 d-flex justify-content-around">
           <div>
@@ -76,6 +80,7 @@ const Menteelog = () => {
               <div>
                 <p>22 Oktober 2022</p>
                 <p>End Of Section</p>
+                <p>ini file yang diuplod</p>
               </div>
             </Col>
             <Col>
