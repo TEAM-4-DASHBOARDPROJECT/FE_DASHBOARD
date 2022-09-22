@@ -1,7 +1,7 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { RiAccountPinBoxLine } from 'react-icons/ri';
-import { FiLogOut } from 'react-icons/fi';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { RiAccountPinBoxLine } from "react-icons/ri";
+import { FiLogOut } from "react-icons/fi";
 
 const Greeting = ({ title, clickLogOut }) => {
   return (
@@ -18,7 +18,7 @@ const Greeting = ({ title, clickLogOut }) => {
             <RiAccountPinBoxLine className="react-icons1" />
             Hello, <span className="name">Kamil</span>
           </div>
-          <FiLogOut className="react-icons2" onClick={clickLogOut} />
+          <FiLogOut className="react-icons2 hellogreet" onClick={clickLogOut} />
         </Col>
       </Row>
       <hr></hr>

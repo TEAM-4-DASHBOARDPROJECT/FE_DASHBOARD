@@ -1,14 +1,17 @@
-import React from 'react';
-import Sidebar from '../component/sidebar';
-import Greeting from '../component/greeting';
-import Chart from '../component/chart';
-import { Container, Row, Col } from 'react-bootstrap';
-import Router from 'next/router';
+import React from "react";
+import Sidebar from "../component/sidebar";
+import Greeting from "../component/greeting";
+import Chart from "../component/chart";
+import { Container, Row, Col } from "react-bootstrap";
+import Router from "next/router";
+import { deleteCookie } from "cookies-next";
+
 
 const dashboard = () => {
   const logOut = () => {
+    deleteCookie("Token");
     Router.push({
-      pathname: '/',
+      pathname: "/",
     });
   };
 
