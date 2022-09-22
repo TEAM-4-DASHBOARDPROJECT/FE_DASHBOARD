@@ -16,7 +16,6 @@ const Greeting = ({ title, clickLogOut }) => {
         <Col md={{ span: 4, offset: 0 }}>
           <div className="hellogreet">
             <RiAccountPinBoxLine className="react-icons1" />
-            Hello, <span className="name">Kamil</span>
           </div>
           <FiLogOut className="react-icons2 hellogreet" onClick={clickLogOut} />
         </Col>

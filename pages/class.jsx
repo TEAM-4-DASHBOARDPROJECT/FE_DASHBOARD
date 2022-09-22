@@ -6,176 +6,180 @@ import Router from 'next/router';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { getCookie } from 'cookies-next';
 
-function AddNew(props) {
-  const [name, setName] = useState('');
-  const [jumlah, setJumlah] = useState('');
-  const [mulai, setMulai] = useState('');
-  const [akhir, setAkhir] = useState('');
-
-  const handleAddClass = () => {
-    var axios = require('axios');
-    var data = JSON.stringify({
-      name: name,
-      jumlah: jumlah,
-      mulai: mulai,
-      akhir: akhir,
-    });
-
-    var config = {
-      method: 'post',
-      url: 'https://group4.altaproject.online/class',
-      headers: {
-        Authorization: `Bearer ${getCookie('Token')}`,
-        'Content-Type': 'application/json',
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        alert('Data Berhasil ditambah');
-        window.location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  return (
-    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Add New Class</Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="show-grid">
-        <Container>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Name</label>
-              <input onChange={(e) => setName(e.target.value)} placeholder="Nama"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Total Mentee</label>
-              <input onChange={(e) => setJumlah(e.target.value)} placeholder="Total Mente" type="number"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Start Date</label>
-              <input onChange={(e) => setMulai(e.target.value)} type="date" name="mulai"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">End Date</label>
-              <input onChange={(e) => setAkhir(e.target.value)} type="date" name="akhir"></input>
-            </Col>
-          </Row>
-        </Container>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button style={{ background: '#F07539', border: '#f7731c' }} onClick={props.onHide}>
-          Cancel
-        </Button>
-        <Button style={{ background: '#F07539', border: '#f7731c' }} onClick={handleAddClass}>
-          submit
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
-
-function Edit(props) {
-  const [name, setName] = useState('');
-  const [jumlah, setJumlah] = useState('');
-  const [mulai, setMulai] = useState('');
-  const [akhir, setAkhir] = useState('');
-
-  const handleEditClass = (data) => {
-    var axios = require('axios');
-    var data = JSON.stringify({
-      name: name,
-      jumlah: jumlah,
-      mulai: mulai,
-      akhir: akhir,
-    });
-
-    var config = {
-      method: 'put',
-      url: `https://group4.altaproject.online/class/${data.ID}`,
-      headers: {
-        Authorization: `Bearer ${getCookie('Token')}`,
-        'Content-Type': 'application/json',
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        alert('Data berhasil di Edit');
-        window.location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  return (
-    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Edit Class</Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="show-grid">
-        <Container>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Name</label>
-              <input onChange={(e) => setName(e.target.value)} placeholder="Nama"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Total Mentee</label>
-              <input onChange={(e) => setJumlah(e.target.value)} placeholder="Total Mente" type="number"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">Start Date</label>
-              <input onChange={(e) => setAwal(e.target.value)} type="date"></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <label className="me-5 mb-5">End Date</label>
-              <input onChange={(e) => setAkhir(e.target.value)} type="date"></input>
-            </Col>
-          </Row>
-        </Container>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button style={{ background: '#F07539', border: '#f7731c' }} onClick={props.onHide}>
-          Cancel
-        </Button>
-        <Button style={{ background: '#F07539', border: '#f7731c' }} onClick={handleEditClass}>
-          Save Edit
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
-
 const Class = () => {
   const [modalShowNew, setModalNew] = useState(false);
   const [modalShowEdit, setModalEdit] = useState(false);
-  console.log('ini modal show', modalShowEdit);
+  console.log("ini modal show", modalShowEdit);
 
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
     getClass();
   }, []);
+
+  // MODAL ADD NEW MENTEE
+  function AddNew(props) {
+    const [name, setName] = useState("");
+    const [jumlah, setJumlah] = useState("");
+    const [mulai, setMulai] = useState("");
+    const [akhir, setAkhir] = useState("");
+
+    const handleAddClass = () => {
+      var axios = require("axios");
+      var data = JSON.stringify({
+        name: name,
+        jumlah: jumlah,
+        mulai: mulai,
+        akhir: akhir,
+      });
+
+      var config = {
+        method: "post",
+        url: "https://group4.altaproject.online/class",
+        headers: {
+          Authorization: `Bearer ${getCookie("Token")}`,
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+
+      axios(config)
+        .then(function (response) {
+          alert("Data Berhasil ditambah");
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    return (
+      <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">Add New Class</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          <Container>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Name</label>
+                <input onChange={(e) => setName(e.target.value)} placeholder="Nama"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Total Mentee</label>
+                <input onChange={(e) => setJumlah(e.target.value)} placeholder="Total Mente" type="number"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Start Date</label>
+                <input onChange={(e) => setMulai(e.target.value)} type="date" name="mulai"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">End Date</label>
+                <input onChange={(e) => setAkhir(e.target.value)} type="date" name="akhir"></input>
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
+            Cancel
+          </Button>
+          <Button style={{ background: "#F07539", border: "#f7731c" }} onClick={handleAddClass}>
+            submit
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+  // MODAL EDIT MENTEE
+  function Edit(props) {
+    const [name, setName] = useState("");
+    const [jumlah, setJumlah] = useState("");
+    const [mulai, setMulai] = useState("");
+    const [akhir, setAkhir] = useState("");
+
+    const handleEditClass = (datas) => {
+      var axios = require("axios");
+      var data = JSON.stringify({
+        name: name,
+        jumlah: jumlah,
+        mulai: mulai,
+        akhir: akhir,
+      });
+      console.log("ini data", datas);
+
+      var config = {
+        method: "put",
+        url: `https://group4.altaproject.online/class/${datas.ID}`,
+        headers: {
+          Authorization: `Bearer ${getCookie("Token")}`,
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+
+
+      axios(config)
+        .then(function (response) {
+          alert("Data berhasil di Edit");
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    return (
+      <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">Edit Class</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          <Container>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Name</label>
+                <input onChange={(e) => setName(e.target.value)} placeholder="Nama"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Total Mentee</label>
+                <input onChange={(e) => setJumlah(e.target.value)} placeholder="Total Mente" type="number"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">Start Date</label>
+                <input onChange={(e) => setMulai(e.target.value)} type="date"></input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+                <label className="me-5 mb-5">End Date</label>
+                <input onChange={(e) => setAkhir(e.target.value)} type="date"></input>
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
+            Cancel
+          </Button>
+          <Button style={{ background: "#F07539", border: "#f7731c" }} onClick={handleEditClass}>
+            Save Edit
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 
   // get Data Api
   const getClass = () => {
