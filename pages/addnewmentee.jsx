@@ -88,13 +88,13 @@ const addnewmentee = () => {
               <Greeting title="Add Mentee" clickLogOut={() => logOut()} />
               <Container className="formnewmentee" style={{ justifyContent: 'center' }}>
                 <Form>
-                <h4>Biodata</h4>
+                  <h4>Biodata</h4>
                   <Form.Group as={Row} controlId="formPlaintext">
                     <Form.Label column sm="3">
                       <p>Name :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" className="formctrl" />
+                      <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="John Due" className="formctrl" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} controlId="formPlaintext">
@@ -102,7 +102,7 @@ const addnewmentee = () => {
                       <p>Address :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setAddress(e.target.value)} type="address" placeholder="Address" />
+                      <Form.Control onChange={(e) => setAddress(e.target.value)} type="address" placeholder="Jl. Satu Nusa" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} className="" controlId="formPlaintext">
@@ -110,7 +110,7 @@ const addnewmentee = () => {
                       <p>Home Address :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setHomeaddress(e.target.value)} type="address" placeholder="Home Address" />
+                      <Form.Control onChange={(e) => setHomeaddress(e.target.value)} type="address" placeholder="Jl. Satu Bangsa" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} controlId="formPlaintextEmail">
@@ -118,7 +118,7 @@ const addnewmentee = () => {
                       <p>Email :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
+                      <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="johndue@gmail.com" />
                     </Col>
                   </Form.Group>
                   <fieldset>
@@ -126,7 +126,7 @@ const addnewmentee = () => {
                       <Form.Label as="legend" column sm={3}>
                         <p>Gender :</p>
                       </Form.Label>
-                      <Col sm={3}>
+                      <Col sm={2}>
                         <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Male" name="formVerticalRadios" id="formVerticalRadios1" />
                       </Col>
                       <Col sm={2}>
@@ -141,7 +141,7 @@ const addnewmentee = () => {
                     <Col sm="9">
                       <InputGroup className="mb-2">
                         <InputGroup.Text>@</InputGroup.Text>
-                        <Form.Control onChange={(e) => setTelegram(e.target.value)} id="inlineFormInputGroup" placeholder="Telegram" />
+                        <Form.Control onChange={(e) => setTelegram(e.target.value)} id="inlineFormInputGroup" placeholder="johndue" />
                       </InputGroup>
                     </Col>
                   </Form.Group>
@@ -150,7 +150,7 @@ const addnewmentee = () => {
                       <p>Phone :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setPhone(e.target.value)} type="text" placeholder="Phone" />
+                      <Form.Control onChange={(e) => setPhone(e.target.value)} type="tel" placeholder="+62" />
                     </Col>
                   </Form.Group>
                   <div>
@@ -161,7 +161,7 @@ const addnewmentee = () => {
                       <p>Name :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setEmergencyname(e.target.value)} type="text" placeholder="Name" />
+                      <Form.Control onChange={(e) => setEmergencyname(e.target.value)} type="text" placeholder="John Lenon" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} controlId="formPlaintext">
@@ -169,7 +169,7 @@ const addnewmentee = () => {
                       <p>Phone :</p>
                     </Form.Label>
                     <Col sm="9">
-                      <Form.Control onChange={(e) => setEmergencyphone(e.target.value)} type="text" placeholder="Phone" />
+                      <Form.Control onChange={(e) => setEmergencyphone(e.target.value)} type="tel" placeholder="+62" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} controlId="formPlaintext">
@@ -192,7 +192,7 @@ const addnewmentee = () => {
                       <Form.Label as="legend" column sm={3}>
                         <p>Category :</p>
                       </Form.Label>
-                      <Col sm={3}>
+                      <Col sm={2}>
                         <Form.Check onChange={(e) => setEducationcategory(e.target.value)} type="radio" label="informatics" name="formVerticalRadios" id="formVerticalRadios1" />
                       </Col>
                       <Col sm={3}>
@@ -251,10 +251,10 @@ const addnewmentee = () => {
                 </Form>
               </Container>
               <Container className="save">
-                <Button onClick={menteelist} variant="outline-warning" style={{ margin: '0px 15px' }}>
+                <Button onClick={menteelist} variant="outline-warning" style={{ margin: '0px 15px', width: '80px' }}>
                   Cancel
                 </Button>
-                <Button onClick={handleMentee} style={{ background: '#F07539', border: '#f7731c' }} type="submit">
+                <Button onClick={handleMentee} style={{ background: '#F07539', border: '#f7731c', width: '80px' }} type="submit">
                   Save
                 </Button>
               </Container>

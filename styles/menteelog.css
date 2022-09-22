@@ -1,13 +1,32 @@
 .log {
   height: auto;
   border: #dbe5fa solid 2px;
-  margin-top: 100px;
+  margin-top: 20px;
   padding: 30px;
   color: #1b345f;
 }
 
 .colr {
-  margin-left: 60px;
+padding-bottom: 30px;
+}
+
+.colr h1 {
+  color: #f7731c;
+}
+
+.colr h2 {
+  color: #1b345f;
+  padding-top: 10px;
+}
+
+.buttonlog {
+  width: 150px;
+  height: 38px;
+  margin: 40px 0 40px 600px;
+  color: #ffffff;
+  background-color: #f7731c;
+  border-radius: 8px;
+  border: #f7731c;
 }
 
 @media (max-width: 1044px) {
@@ -23,7 +42,7 @@
   .colr2 {
     margin-right: 60px;
   }
-  .button1 {
+  .buttonlog {
     margin-right: 40px;
   }
   .log {
@@ -34,7 +53,7 @@
   .colr2 {
     margin-right: 60px;
   }
-  .button1 {
+  .buttonlog {
     margin-right: 40px;
   }
   .log {

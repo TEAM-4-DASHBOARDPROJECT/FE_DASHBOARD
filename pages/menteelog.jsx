@@ -41,7 +41,7 @@ function AddNewLog(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="mt-4" style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
+        <Button className="mt-4" style={{ background: '#F07539', border: '#f7731c' }} onClick={props.onHide}>
           Save
         </Button>
       </Modal.Footer>
@@ -59,59 +59,61 @@ const Menteelog = () => {
 
   return (
     <div>
-      <Row>
-        <Col lg={{ span: 4, offset: 0 }} className="col1">
-          <Sidebar />
-        </Col>
-        <Col lg={{ span: 8, offset: 0 }} className="col2">
-          <div className="colr2">
-            <Greeting title="Mentee Log" clickLogOut={() => logOut()} />
-          </div>
-          <div className="colr">
-            <div>
-              <Row>
-                <Col sm={12} md={6}>
-                  <h1 className="fs-3 pt-0">Rachman Kamil</h1>
-                  <h2 className="fs-6">Quality Enggineer Batch 8</h2>
-                  <h2 className="fs-6">IPA</h2>
-                  <h2 className="fs-6">SMA N 29 Palembang</h2>
-                </Col>
-                <Col sm={12} md={6}>
-                  <h2 className="fs-6">Phone : 08218341294</h2>
-                  <h2 className="fs-6">Telegram:@Rachman</h2>
-                  <h2 className="fs-6">Discord:@Rachman</h2>
-                  <h2 className="fs-6">Email:Rachman@gmail.com</h2>
-                </Col>
-              </Row>
+      <Container className="condash1">
+        <Row>
+          <Col lg={{ span: 4, offset: 0 }} className="col1">
+            <Sidebar />
+          </Col>
+          <Col lg={{ span: 8, offset: 5 }} className="col2">
+            <div className="colr2">
+              <Greeting title="Mentee Log" clickLogOut={() => logOut()} />
             </div>
-            <div>
-              <button onClick={() => setModalShow(true)} className="button1">
-                Add New Log
-              </button>
-              <AddNewLog show={modalShow} onHide={() => setModalShow(false)} />
+            <div className="colr">
+              <div>
+                <Row>
+                  <Col lg={{ span: 6, offset: 0 }}>
+                    <h1 className="fs-3 pt-0">Rachman Kamil</h1>
+                    <h2 className="fs-6">Quality Enggineer Batch 8</h2>
+                    <h2 className="fs-6">IPA</h2>
+                    <h2 className="fs-6">SMA N 29 Palembang</h2>
+                  </Col>
+                  <Col lg={{ span: 6, offset: 0 }}>
+                    <h2 className="fs-6">Phone : 08218341294</h2>
+                    <h2 className="fs-6">Telegram:@Rachman</h2>
+                    <h2 className="fs-6">Discord:@Rachman</h2>
+                    <h2 className="fs-6">Email:Rachman@gmail.com</h2>
+                  </Col>
+                </Row>
+              </div>
+              <div>
+                <button onClick={() => setModalShow(true)} className="buttonlog">
+                  Add New Log
+                </button>
+                <AddNewLog show={modalShow} onHide={() => setModalShow(false)} />
+              </div>
+              <div className="log">
+                <Row>
+                  <Col xs={3}>
+                    <div>
+                      <p>22 Oktober 2022</p>
+                      <p>End Of Section</p>
+                      <p className="fs-1">
+                        <AiOutlineFileSearch />
+                      </p>
+                    </div>
+                  </Col>
+                  <Col>
+                    <div>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, et eos, perferendis similique porro commodi facere dolor placeat aliquid tenetur dolores sapiente eius rem dolorum recusandae animi neque consectetur. Iure?
+                    </div>
+                    <div className="mt-4 fw-bold ">Change Status : Continue To Session 2</div>
+                  </Col>
+                </Row>
+              </div>
             </div>
-            <div className="log">
-              <Row>
-                <Col xs={3}>
-                  <div>
-                    <p>22 Oktober 2022</p>
-                    <p>End Of Section</p>
-                    <p className="fs-1">
-                      <AiOutlineFileSearch />
-                    </p>
-                  </div>
-                </Col>
-                <Col>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, et eos, perferendis similique porro commodi facere dolor placeat aliquid tenetur dolores sapiente eius rem dolorum recusandae animi neque consectetur. Iure?
-                  </div>
-                  <div className="mt-4 fw-bold ">Change Status : Continue To Session 2</div>
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
