@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Sidebar from '../component/sidebar';
-import Greeting from '../component/greeting';
-import { Table, Modal, Button, Container, Form, Row, Col, InputGroup, Pagination } from 'react-bootstrap';
-import Router from 'next/router';
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
-import { getCookie } from 'cookies-next';
+import React, { useState, useEffect } from "react";
+import Sidebar from "../component/sidebar";
+import Greeting from "../component/greeting";
+import { Table, Modal, Button, Container, Form, Row, Col, InputGroup, Pagination } from "react-bootstrap";
+import Router from "next/router";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { getCookie } from "cookies-next";
 
 const Class = () => {
   const [modalShowNew, setModalNew] = useState(false);
   const [modalShowEdit, setModalEdit] = useState(false);
-  console.log("ini modal show", modalShowEdit);
 
+  const [datasid, setDatasid] = useState("");
   const [datas, setDatas] = useState([]);
+  console.log(datasid);
 
   useEffect(() => {
     getClass();
@@ -105,7 +106,7 @@ const Class = () => {
     const [mulai, setMulai] = useState("");
     const [akhir, setAkhir] = useState("");
 
-    const handleEditClass = (datas) => {
+    const handleEditClass = () => {
       var axios = require("axios");
       var data = JSON.stringify({
         name: name,
@@ -113,18 +114,15 @@ const Class = () => {
         mulai: mulai,
         akhir: akhir,
       });
-      console.log("ini data", datas);
-
       var config = {
         method: "put",
-        url: `https://group4.altaproject.online/class/${datas.ID}`,
+        url: `https://group4.altaproject.online/class/${datasid.ID}`,
         headers: {
           Authorization: `Bearer ${getCookie("Token")}`,
           "Content-Type": "application/json",
         },
         data: data,
       };
-
 
       axios(config)
         .then(function (response) {
@@ -146,13 +144,13 @@ const Class = () => {
             <Row>
               <Col xs={12} md={12}>
                 <label className="me-5 mb-5">Name</label>
-                <input onChange={(e) => setName(e.target.value)} placeholder="Nama"></input>
+                <input onChange={(e) => setName(e.target.value)} placeholder={datasid.Name}></input>
               </Col>
             </Row>
             <Row>
               <Col xs={12} md={12}>
                 <label className="me-5 mb-5">Total Mentee</label>
-                <input onChange={(e) => setJumlah(e.target.value)} placeholder="Total Mente" type="number"></input>
+                <input onChange={(e) => setJumlah(e.target.value)} placeholder={datasid.JumlahKelas} type="number"></input>
               </Col>
             </Row>
             <Row>
@@ -183,13 +181,13 @@ const Class = () => {
 
   // get Data Api
   const getClass = () => {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var config = {
-      method: 'get',
-      url: 'https://group4.altaproject.online/class',
+      method: "get",
+      url: "https://group4.altaproject.online/class",
       headers: {
-        Authorization: `Bearer ${getCookie('Token')}`,
+        Authorization: `Bearer ${getCookie("Token")}`,
       },
     };
 
@@ -204,18 +202,18 @@ const Class = () => {
 
   const logOut = () => {
     Router.push({
-      pathname: '/',
+      pathname: "/",
     });
   };
 
   // Delete Class
   const handleDelete = ({ ID }) => {
-    var axios = require('axios');
+    var axios = require("axios");
     var config = {
-      method: 'delete',
+      method: "delete",
       url: `https://group4.altaproject.online/class/${ID}`,
       headers: {
-        Authorization: `Bearer ${getCookie('Token')}`,
+        Authorization: `Bearer ${getCookie("Token")}`,
       },
     };
 
@@ -230,7 +228,7 @@ const Class = () => {
 
   return (
     <div className="condash">
-      <Container className='condash1'>
+      <Container className="condash1">
         <Row>
           <Col lg={{ span: 4, offset: 0 }} className="col1">
             <Sidebar />
@@ -274,7 +272,8 @@ const Class = () => {
                             <td>{data.MulaiKelas}</td>
                             <td>{data.AkhirKelas}</td>
                             <td>
-                              <AiFillEdit onClick={() => setModalEdit(true, data)} />
+                              <input onClick={() => setDatasid(data)} type="checkbox" />
+                              <AiFillEdit onClick={() => setModalEdit(true)} />
                               <Edit show={modalShowEdit} onHide={() => setModalEdit(false)} />
                             </td>
                             <td>
@@ -287,10 +286,10 @@ const Class = () => {
                   );
                 })}
               </div>
-              <div style={{ float: 'right' }}>
+              <div style={{ float: "right" }}>
                 <Pagination>
-                  <Pagination.Prev>{'Prev'}</Pagination.Prev>
-                  <Pagination.Next>{'Next'}</Pagination.Next>
+                  <Pagination.Prev>{"Prev"}</Pagination.Prev>
+                  <Pagination.Next>{"Next"}</Pagination.Next>
                 </Pagination>
               </div>
             </div>
