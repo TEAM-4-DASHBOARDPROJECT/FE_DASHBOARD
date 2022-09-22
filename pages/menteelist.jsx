@@ -1,21 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Greeting from "../component/greeting";
 import Sidebar from "../component/sidebar";
 import { Form, Button, Row, Col, InputGroup, Table, Pagination } from "react-bootstrap";
-import Link from "next/link";
 import Router from "next/router";
 import { AiFillWallet, AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { getCookie } from "cookies-next";
 
 const menteelist = () => {
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  // Get API
+  const getData = () => {
+    var axios = require("axios");
+
+    var config = {
+      method: "get",
+      url: "https://group4.altaproject.online/mentee",
+      headers: {
+        Authorization: `Bearer ${getCookie("Token")}`,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        setDatas(response.data.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  // Delete Class
+  const handleDelete = ({ id }) => {
+    var axios = require("axios");
+    var config = {
+      method: "delete",
+      url: `https://group4.altaproject.online/mentee/${id}`,
+      headers: {
+        Authorization: `Bearer ${getCookie("Token")}`,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        getData();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   const addNewMentee = () => {
     Router.push({
       pathname: "/addnewmentee",
+      query: {
+        datas: datas,
+      },
     });
   };
 
-  const editMentee = () => {
+  const editMentee = (data) => {
     Router.push({
       pathname: "/editmentee",
+      query: {
+        fullname: data.fullname,
+        address: data.address,
+        homeaddress: data.homeaddress,
+        email: data.email,
+        telegram: data.telegram,
+        id: data.id,
+      },
     });
   };
 
@@ -27,7 +85,7 @@ const menteelist = () => {
 
   const logOut = () => {
     Router.push({
-      pathname: '/',
+      pathname: "/",
     });
   };
 
@@ -112,59 +170,48 @@ const menteelist = () => {
             </div>
           </div>
           <div className="tableclass" style={{ marginTop: "40px" }}>
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Name</th>
-                  <th>Class</th>
-                  <th>Status</th>
-                  <th>Category</th>
-                  <th>Genre</th>
-                  <th>Detail</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Yoga</td>
-                  <td>FE 8</td>
-                  <td>Active</td>
-                  <td>IT</td>
-                  <td>Male</td>
-                  <td onClick={() => menteeLog()}>
-                    <AiFillWallet />
-                  </td>
-                  <td onClick={() => editMentee()}>
-                    <AiFillEdit />
-                  </td>
-                  <td>
-                    <AiFillDelete />
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Iqbal</td>
-                  <td>BE 11</td>
-                  <td>Active</td>
-                  <td>Non-IT</td>
-                  <td>Male</td>
-                  <td onClick={() => menteeLog()}>
-                    <AiFillWallet />
-                  </td>
-                  <td onClick={() => editMentee()}>
-                    <AiFillEdit />
-                  </td>
-                  <td>
-                    <AiFillDelete />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            {datas.map((data, index) => {
+              return (
+                <div key={index}>
+                  <Table striped bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Status</th>
+                        <th>Category</th>
+                        <th>Genre</th>
+                        <th>Detail</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{index}</td>
+                        <td>{data.fullname}</td>
+                        <td>{data.classname}</td>
+                        <td>{data.status}</td>
+                        <td>{data.educationcategory}</td>
+                        <td>{data.gender}</td>
+                        <td onClick={() => menteeLog()}>
+                          <AiFillWallet />
+                        </td>
+                        <td>
+                          <AiFillEdit onClick={() => editMentee(data)} />
+                        </td>
+                        <td>
+                          <AiFillDelete onClick={() => handleDelete(data)} />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
+              );
+            })}
           </div>
-          <div style={{ float: "right", marginTop:"30px" }}>
+          <div style={{ float: "right", marginTop: "30px" }}>
             <Pagination>
               <Pagination.Prev>{"Prev"}</Pagination.Prev>
               <Pagination.Item>{1}</Pagination.Item>
