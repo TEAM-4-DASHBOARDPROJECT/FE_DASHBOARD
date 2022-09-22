@@ -124,7 +124,7 @@ function Edit(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Edit Mentee</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit Class</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>

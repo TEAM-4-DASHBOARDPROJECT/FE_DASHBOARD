@@ -7,30 +7,30 @@ import Router from "next/router";
 import { setCookie } from "cookies-next";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    var axios = require("axios");
+    var axios = require('axios');
     var data = JSON.stringify({
       email: email,
       password: password,
     });
-
     var config = {
       method: "post",
       url: "https://group4.altaproject.online/login",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: data,
     };
-
     axios(config)
       .then(function (response) {
+
         setCookie("Token", response.data.data);
         alert("login berhasil");
         Router.push("/dashboard");
+
         console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
@@ -80,6 +80,7 @@ const LoginPage = () => {
             LOGIN
           </Button>
         </div>
+
       </Container>
     </div>
   );
