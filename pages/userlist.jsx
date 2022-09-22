@@ -214,11 +214,12 @@ const userlist = () => {
 
   return (
     <div className="condash">
+      <Container className="condash1">
       <Row>
         <Col lg={{ span: 4, offset: 0 }} className="col1">
           <Sidebar />
         </Col>
-        <Col lg={{ span: 8, offset: 0 }} className="col2">
+        <Col lg={{ span: 8, offset: 5 }} className="col2">
           <div className="container">
             <Greeting title="User List" clickLogOut={() => logOut()} />
             <div className="searchbutton">
@@ -273,6 +274,8 @@ const userlist = () => {
           </div>
         </Col>
       </Row>
+      </Container>
+      
     </div>
   )
 }
