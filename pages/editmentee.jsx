@@ -2,12 +2,78 @@ import { Container, Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
 import Sidebar from '../component/sidebar';
 import Greeting from '../component/greeting';
 import Router from 'next/router';
+import { useState } from 'react';
+import { setCookie } from 'cookies-next';
+import axios from 'axios';
 
 const editmentee = () => {
   const logOut = () => {
     Router.push({
       pathname: '/',
     });
+  };
+
+  const menteelist = () => {
+    Router.push({
+      pathname: '/menteelist',
+    });
+  };
+
+  const [name, setName] = useState("");
+  const [class_id, setClass_id] = useState("");
+  const [status, setStatus] = useState("");
+  const [homeaddress, setHomeaddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [telegram, setTelegram] = useState("");
+  const [phone, setPhone] = useState("");
+  const [emergencyname, setEmergencyname] = useState("");
+  const [emergencyphone, setEmergencyphone] = useState("");
+  const [emergencystatus, setEmergencystatus] = useState("");
+  const [educationcategory, setEducationcategory] = useState("");
+  const [educationmajor, setEducationmajor] = useState("");
+  const [educationgraduate, setEducationgraduate] = useState('');
+
+  const handleMentee = () => {
+    var axios = require("axios");
+    var data = JSON.stringify({
+      name: name,
+      class_id: class_id,
+      status: status,
+      address: address,
+      homeaddress: homeaddress,
+      email: email,
+      gender: gender,
+      telegram: telegram,
+      phone: phone,
+      emergencyname: emergencyname,
+      emergencyphone: emergencyphone,
+      emergencystatus: emergencystatus,
+      educationcategory: educationcategory,
+      educationmajor: educationmajor,
+      educationgraduate: educationgraduate,
+    });
+
+    var config = {
+      method: "put",
+      url: "https://group4.altaproject.online/mentee",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then((response) => {
+        setCookie("Token", response.data)
+        alert("data berhasil masuk yak");
+        Router.push("/menteelist");
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        alert("data salah cuy");
+        console.log(error);
+      });
   };
 
   return (
@@ -26,7 +92,7 @@ const editmentee = () => {
                     Name
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -34,7 +100,7 @@ const editmentee = () => {
                     Address
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="address" placeholder="Address" />
+                    <Form.Control onChange={(e) => setAddress(e.target.value)} type="address" placeholder="Address" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -42,7 +108,7 @@ const editmentee = () => {
                     Home Address
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="address" placeholder="Home Address" />
+                    <Form.Control onChange={(e) => setHomeaddress(e.target.value)} type="address" placeholder="Home Address" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -50,7 +116,7 @@ const editmentee = () => {
                     Email
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="email" placeholder="Email" />
+                    <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
                   </Col>
                 </Form.Group>
                 <fieldset>
@@ -59,10 +125,10 @@ const editmentee = () => {
                       Gender
                     </Form.Label>
                     <Col sm={5}>
-                      <Form.Check type="radio" label="Male" name="formVerticalRadios" id="formVerticalRadios1" />
+                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Male" name="formVerticalRadios" id="formVerticalRadios1" />
                     </Col>
                     <Col sm={5}>
-                      <Form.Check type="radio" label="Female" name="formVerticalRadios" id="formVerticalRadios2" />
+                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Female" name="formVerticalRadios" id="formVerticalRadios2" />
                     </Col>
                   </Form.Group>
                 </fieldset>
@@ -73,7 +139,7 @@ const editmentee = () => {
                   <Col sm="10">
                     <InputGroup className="mb-2">
                       <InputGroup.Text>@</InputGroup.Text>
-                      <Form.Control id="inlineFormInputGroup" placeholder="Telegram" />
+                      <Form.Control onChange={(e) => setTelegram(e.target.value)} id="inlineFormInputGroup" placeholder="Telegram" />
                     </InputGroup>
                   </Col>
                 </Form.Group>
@@ -82,7 +148,7 @@ const editmentee = () => {
                     Phone
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Phone" />
+                    <Form.Control onChange={(e) => setPhone(e.target.value)} type="text" placeholder="Phone" />
                   </Col>
                 </Form.Group>
                 <div>
@@ -93,7 +159,7 @@ const editmentee = () => {
                     Name
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Control onChange={(e) => setEmergencyname(e.target.value)} type="text" placeholder="Name" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -101,7 +167,7 @@ const editmentee = () => {
                     Phone
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Phone" />
+                    <Form.Control onChange={(e) => setEmergencyphone(e.target.value)} type="text" placeholder="Phone" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -109,7 +175,7 @@ const editmentee = () => {
                     Hubungan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Select aria-label="Default select example">
+                    <Form.Select onChange={(e) => setEmergencystatus(e.target.value)} aria-label="Default select example">
                       <option>Status</option>
                       <option value="1">Orang Tua</option>
                       <option value="2">Saudara Kandung</option>
@@ -125,10 +191,10 @@ const editmentee = () => {
                       Category
                     </Form.Label>
                     <Col sm={5}>
-                      <Form.Check type="radio" label="informatics" name="formVerticalRadios" id="formVerticalRadios1" />
+                      <Form.Check onChange={(e) => setEducationcategory(e.target.value)} type="radio" label="informatics" name="formVerticalRadios" id="formVerticalRadios1" />
                     </Col>
                     <Col sm={5}>
-                      <Form.Check type="radio" label="non-informatics" name="formVerticalRadios" id="formVerticalRadios2" />
+                      <Form.Check onChange={(e) => setEducationcategory(e.target.value)} type="radio" label="non-informatics" name="formVerticalRadios" id="formVerticalRadios2" />
                     </Col>
                   </Form.Group>
                 </fieldset>
@@ -137,7 +203,7 @@ const editmentee = () => {
                     Major
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Control onChange={(e) => setEducationmajor(e.target.value)} type="text" placeholder="Name" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -145,7 +211,7 @@ const editmentee = () => {
                     Graduate
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Phone" />
+                    <Form.Control onChange={(e) => setEducationgraduate(e.target.value)} type="text" placeholder="Phone" />
                   </Col>
                 </Form.Group>
                 <div>
@@ -157,7 +223,7 @@ const editmentee = () => {
                         Class
                       </Form.Label>
                     <Col sm="10">
-                      <Form.Select aria-label="Default select example">
+                      <Form.Select onChange={(e) => setClass_id(e.target.value)} aria-label="Default select example">
                         <option>Class</option>
                         <option value="1">BE 11</option>
                         <option value="2">FE 8</option>
@@ -170,7 +236,7 @@ const editmentee = () => {
                         Status
                       </Form.Label>
                     <Col sm="10">
-                      <Form.Select aria-label="Default select example">
+                      <Form.Select onChange={(e) => setStatus(e.target.value)} aria-label="Default select example">
                         <option>Status</option>
                         <option value="1">Active</option>
                         <option value="2">Placement</option>
@@ -183,10 +249,10 @@ const editmentee = () => {
               </Form>
             </Container>
             <Container className="save">
-              <Button variant="outline-warning" type="submit" style={{ margin: "0px 15px" }}>
+              <Button onClick={menteelist} variant="outline-warning" type="submit" style={{ margin: "0px 15px" }}>
                 Cancel
               </Button>
-              <Button style={{ background: "#F07539", border: "#f7731c" }} type="submit">
+              <Button onClick={handleMentee} style={{ background: "#F07539", border: "#f7731c" }} type="submit">
                 Save
               </Button>
             </Container>

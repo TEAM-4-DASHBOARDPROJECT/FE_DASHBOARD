@@ -169,6 +169,49 @@ const userlist = () => {
     });
   };
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [team, setTeam] = useState("");
+  const [role, setRole] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleUser = (item) => {
+    var axios = require("axios");
+    var data = JSON.stringify({
+      state: {
+        name: name,
+        email: email,
+        password: password,
+        team: team,
+        role: role,
+        status: status,
+      },
+    });
+
+    var config = {
+      method: "post",
+      url: "https://group4.altaproject.online/manager",
+      header: {
+        Authorization: `Bearer ${setCookie}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then((response) => {
+        setCookie("Token", response.data)
+        alert("data udah masuk yak");
+        Router.push("/");
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        alert("data salah gaes");
+        console.log(error);
+      });
+  }
+
   return (
     <div className="condash">
       <Row>
@@ -205,11 +248,11 @@ const userlist = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>Yoga</td>
-                    <td>yoga@gmail.com</td>
-                    <td>Acedemic</td>
-                    <td>Default</td>
-                    <td>Active</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.team}</td>
+                    <td>{item.role}</td>
+                    <td>{item.status}</td>
                     <td>
                       <AiFillEdit onClick={() => setModalEdit(true)} />
                       <EditNewUser show={modalEdit} onHide={() => setModalEdit(false)} />
