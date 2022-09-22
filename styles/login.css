@@ -1,0 +1,22 @@
+/* p {
+    text-decoration: none;
+} */
+
+/* .imglogin {
+   object-fit: cover;
+} */
+
+.contlog {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+.contlog h2 {
+    color: #f7731c;
+    padding-bottom: 6px;
+}
+
+.contlog h6 {
+    color: #1b345f;
+    padding-bottom: 5px;
+}
