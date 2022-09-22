@@ -7,7 +7,7 @@
   color: #1b345f;
   font-weight: 300;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .hellogreet .name {
@@ -26,7 +26,7 @@
   color: #f7731c;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .hellogreet {
     font-size: 28px;
     color: #1b345f;
@@ -38,7 +38,7 @@
     padding-bottom: 20px;
     margin-left: 20px;
   }
-}
+} */
 
 .react-icons1 {
   font-size: 40px;
@@ -46,11 +46,11 @@
 
 .react-icons2 {
   font-size: 30px;
-  margin-left: 180px;
+  margin: 0 0 0 180px;
   color: #1b345f;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .hellogreet {
     font-size: 28px;
     color: #1b345f;
@@ -62,4 +62,4 @@
     padding-bottom: 20px;
     margin-left: 50px;
   }
-}
+} */
