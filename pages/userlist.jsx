@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button, InputGroup, Form, Modal, Container, Row, Col, Table } from "react-bootstrap";
+import { Button, Pagination, Form, Modal, Container, Row, Col, InputGroup, Table } from "react-bootstrap";
 import Sidebar from "../component/sidebar";
 import Greeting from '../component/greeting';
 import Router from 'next/router';
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 function AddNewUser(props) {
   return (
@@ -30,7 +31,7 @@ function AddNewUser(props) {
               <Col><Form.Control type="password" placeholder="Password" /></Col>
             </Form.Group>
           </Row>
-          <div style={{ display:"flex", flexWrap:"wrap"}}>
+          <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"space-around"}}>
               <Row>
                 <Form.Group className="mb-3" controlId="formPlaintext">
                   <Col><Form.Label>Team</Form.Label></Col>
@@ -73,10 +74,7 @@ function AddNewUser(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="mt-4" onClick={props.onHide}>
-          Cancel
-        </Button>
-        <Button className="mt-4" onClick={props.onHide}>
+        <Button className="mt-4" style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
           Save
         </Button>
       </Modal.Footer>
@@ -110,7 +108,7 @@ function EditNewUser(props) {
               <Col><Form.Control type="password" placeholder="Password" /></Col>
             </Form.Group>
           </Row>
-          <div style={{ display:"flex", flexWrap:"wrap"}}>
+          <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"space-around"}}>
               <Row>
                 <Form.Group className="mb-3" controlId="formPlaintext">
                   <Col><Form.Label>Team</Form.Label></Col>
@@ -153,10 +151,7 @@ function EditNewUser(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="mt-4" onClick={props.onHide}>
-          Cancel
-        </Button>
-        <Button className="mt-4" onClick={props.onHide}>
+        <Button className="mt-4" style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
           Save
         </Button>
       </Modal.Footer>
@@ -175,45 +170,66 @@ const userlist = () => {
   };
 
   return (
-    <div className="main-container d-flex">
-        <Sidebar />
-        <div className="container">
-        <Greeting title="User List" clickLogOut={() => logOut()} />
-          <div className="searchbutton">
-            <input type="search"></input>
-            <button>Search</button>
-            <button onClick={() => setModalShow(true)}>Add New</button>
-            <AddNewUser show={modalShow} onHide={() => setModalShow(false)} />
+    <div className="condash">
+      <Row>
+        <Col lg={{ span: 4, offset: 0 }} className="col1">
+          <Sidebar />
+        </Col>
+        <Col lg={{ span: 8, offset: 0 }} className="col2">
+          <div className="container">
+            <Greeting title="User List" clickLogOut={() => logOut()} />
+            <div className="searchbutton">
+              <InputGroup>
+                <Form.Control placeholder="Search" aria-label="Recipient's username with two button addons" />
+                <Button variant="outline-warning">Search</Button>
+                <button onClick={() => setModalShow(true)} className="buttonlist1">
+                  Add New
+                </button>
+                <AddNewUser show={modalShow} onHide={() => setModalShow(false)} />
+              </InputGroup>
+            </div>
+            <div className="tableclass">
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Team</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Yoga</td>
+                    <td>yoga@gmail.com</td>
+                    <td>Acedemic</td>
+                    <td>Default</td>
+                    <td>Active</td>
+                    <td>
+                      <AiFillEdit onClick={() => setModalEdit(true)} />
+                      <EditNewUser show={modalEdit} onHide={() => setModalEdit(false)} />
+                    </td>
+                    <td>
+                      <AiFillDelete />
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+            <div style={{ float: "right" }}>
+              <Pagination>
+                <Pagination.Prev>{"Prev"}</Pagination.Prev>
+                <Pagination.Next>{"Next"}</Pagination.Next>
+              </Pagination>
+            </div>
           </div>
-          <div className="tableclass">
-          <Table striped bordered hover size="sm">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Team</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Yoga</td>
-                <td>yoga@gmail.com</td>
-                <td>Acedemic</td>
-                <td>Default</td>
-                <td>Active</td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
-        </div>
+        </Col>
+      </Row>
     </div>
   )
 }

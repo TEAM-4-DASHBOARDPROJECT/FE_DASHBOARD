@@ -41,7 +41,7 @@ function AddNewLog(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="mt-4" onClick={props.onHide}>
+        <Button className="mt-4" style={{ background: "#F07539", border: "#f7731c" }} onClick={props.onHide}>
           Save
         </Button>
       </Modal.Footer>
