@@ -4,6 +4,7 @@ import Link from "next/link";
 import img from "../picture/login.png";
 import { useState } from "react";
 import Router from "next/router";
+import { setCookie } from "cookies-next";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const LoginPage = () => {
 
     var config = {
       method: "post",
-      url: "http://3.86.24.153:80/login",
+      url: "https://group4.altaproject.online/login",
       headers: {
         "Content-Type": "application/json",
       },
@@ -27,6 +28,7 @@ const LoginPage = () => {
 
     axios(config)
       .then(function (response) {
+        setCookie("Token", response.data.data);
         alert("login berhasil");
         Router.push("/dashboard");
         console.log(JSON.stringify(response.data));
@@ -74,7 +76,7 @@ const LoginPage = () => {
           </Row>
         </Form>
         <div>
-          <Button onClick={handleLogin} className="button" style={{ background: "#F07539", border: "#f7731c", width: "209px", marginTop: "35px"}}>
+          <Button onClick={handleLogin} className="button" style={{ background: "#F07539", border: "#f7731c", width: "209px", marginTop: "35px" }}>
             LOGIN
           </Button>
         </div>
