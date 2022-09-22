@@ -39,7 +39,7 @@ const LoginPage = () => {
   return (
     <div className="log-page">
       <Image src={img} width="600px"></Image>
-      <Container style={{ width: "600px", height: "100%" }}>
+      <Container style={{ width: "600px", height: "1096" }}>
         <div>
           <h2>Login to your account!</h2>
         </div>
@@ -74,7 +74,7 @@ const LoginPage = () => {
           </Row>
         </Form>
         <div>
-          <Button onClick={handleLogin} className="button" style={{ background: "#F07539", width: "209px" }}>
+          <Button onClick={handleLogin} className="button" style={{ background: "#F07539", border: "#f7731c", width: "209px", marginTop: "35px"}}>
             LOGIN
           </Button>
         </div>

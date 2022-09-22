@@ -144,13 +144,33 @@ const menteelist = () => {
                     <AiFillDelete />
                   </td>
                 </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Iqbal</td>
+                  <td>BE 11</td>
+                  <td>Active</td>
+                  <td>Non-IT</td>
+                  <td>Male</td>
+                  <td onClick={() => menteeLog()}>
+                    <AiFillWallet />
+                  </td>
+                  <td onClick={() => editMentee()}>
+                    <AiFillEdit />
+                  </td>
+                  <td>
+                    <AiFillDelete />
+                  </td>
+                </tr>
               </tbody>
             </Table>
           </div>
-          <div style={{ float: "right" }}>
+          <div style={{ float: "right", marginTop:"30px" }}>
             <Pagination>
-              <Pagination.Item>{"Prev"}</Pagination.Item>
-              <Pagination.Item>{"Next"}</Pagination.Item>
+              <Pagination.Prev>{"Prev"}</Pagination.Prev>
+              <Pagination.Item>{1}</Pagination.Item>
+              <Pagination.Item>{2}</Pagination.Item>
+              <Pagination.Item>{3}</Pagination.Item>
+              <Pagination.Next>{"Next"}</Pagination.Next>
             </Pagination>
           </div>
         </Col>
