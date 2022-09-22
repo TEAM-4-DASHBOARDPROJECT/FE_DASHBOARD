@@ -79,7 +79,7 @@ const menteelist = () => {
 
   const menteeLog = () => {
     Router.push({
-      pathname: "/menteelog",
+      pathname: '/menteelog',
     });
   };
 
@@ -91,82 +91,23 @@ const menteelist = () => {
 
   return (
     <div className="condash">
-      <Row>
-        <Col lg={{ span: 4, offset: 0 }} className="col1">
-          <Sidebar />
-        </Col>
-        <Col lg={{ span: 8, offset: 0 }} className="col2">
-          <div className="colr2">
-            <Greeting title="Mentee" clickLogOut={() => logOut()} />
-          </div>
-          <div className="searchbutton">
-            <InputGroup>
-              <Form.Control placeholder="Search" aria-label="Recipient's username with two button addons" />
-              <Button variant="outline-warning">Search</Button>
-              <button onClick={() => addNewMentee()} className="buttonlist1">
-                Add New
-              </button>
-            </InputGroup>
-          </div>
-          <div className="d-flex flex-wrap" style={{ marginTop: "70px", justifyContent: "flex-end" }}>
-            <div style={{ marginTop: "38px" }}>
-              <button className="buttonlist2">Export</button>
+      <Container className='condash1'>
+        <Row>
+          <Col lg={{ span: 4, offset: 0 }} className="col1">
+            <Sidebar />
+          </Col>
+          <Col lg={{ span: 8, offset: 5 }} className="col2">
+            <div className="colr2">
+              <Greeting title="Mentee" clickLogOut={() => logOut()} />
             </div>
-            <Form className="d-flex flex-wrap" style={{ margin: "0px 15px" }}>
-              <Row>
-                <Form.Group className="mb-3" controlId="formPlaintext">
-                  <Col>
-                    <Form.Label column sm="2">
-                      Class
-                    </Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Select aria-label="Default select example">
-                      <option>All Class</option>
-                      <option value="1">BE 11</option>
-                      <option value="2">FE 8</option>
-                      <option value="3">FE 7</option>
-                    </Form.Select>
-                  </Col>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group className="mb-3" controlId="formPlaintext">
-                  <Col>
-                    <Form.Label column sm="2">
-                      Status
-                    </Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Select aria-label="Default select example">
-                      <option>All Status</option>
-                      <option value="1">Active</option>
-                      <option value="2">Placement</option>
-                      <option value="3">Graduate</option>
-                      <option value="4">Eliminate</option>
-                    </Form.Select>
-                  </Col>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group className="mb-3" controlId="formPlaintext">
-                  <Col>
-                    <Form.Label column sm="2">
-                      Category
-                    </Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Select aria-label="Default select example">
-                      <option>All Category</option>
-                      <option value="1">Informatics</option>
-                      <option value="2">Non-Informatics</option>
-                    </Form.Select>
-                  </Col>
-                </Form.Group>
-              </Row>
-            </Form>
-            <div style={{ marginTop: "38px" }}>
-              <button className="buttonlist3">Filter</button>
+            <div className="searchbutton">
+              <InputGroup>
+                <Form.Control placeholder="Search" aria-label="Recipient's username with two button addons" />
+                <Button variant="outline-warning">Search</Button>
+                <button onClick={() => addNewMentee()} className="buttonlist1">
+                  Add New
+                </button>
+              </InputGroup>
             </div>
           </div>
           <div className="tableclass" style={{ marginTop: "40px" }}>

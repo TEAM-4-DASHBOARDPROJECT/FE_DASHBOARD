@@ -22,7 +22,7 @@ const dashboard = () => {
           <Col lg={{ span: 4, offset: 0 }} className="col1">
             <Sidebar />
           </Col>
-          <Col lg={{ span: 8, offset: 0 }} className="col2">
+          <Col lg={{ span: 8, offset: 5 }} className="col2">
             <div className="colr2">
               <Greeting title="Dashboard" clickLogOut={() => logOut()} />
             </div>

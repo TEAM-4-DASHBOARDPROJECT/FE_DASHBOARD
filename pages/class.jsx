@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Sidebar from "../component/sidebar";
-import Greeting from "../component/greeting";
-import { Table, Modal, Button, Container, Form, Row, Col, InputGroup, Pagination } from "react-bootstrap";
-import Router from "next/router";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { getCookie } from "cookies-next";
+import React, { useState, useEffect } from 'react';
+import Sidebar from '../component/sidebar';
+import Greeting from '../component/greeting';
+import { Table, Modal, Button, Container, Form, Row, Col, InputGroup, Pagination } from 'react-bootstrap';
+import Router from 'next/router';
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { getCookie } from 'cookies-next';
 
 const Class = () => {
   const [modalShowNew, setModalNew] = useState(false);
@@ -125,6 +125,7 @@ const Class = () => {
         data: data,
       };
 
+
       axios(config)
         .then(function (response) {
           alert("Data berhasil di Edit");
@@ -182,13 +183,13 @@ const Class = () => {
 
   // get Data Api
   const getClass = () => {
-    var axios = require("axios");
+    var axios = require('axios');
 
     var config = {
-      method: "get",
-      url: "https://group4.altaproject.online/class",
+      method: 'get',
+      url: 'https://group4.altaproject.online/class',
       headers: {
-        Authorization: `Bearer ${getCookie("Token")}`,
+        Authorization: `Bearer ${getCookie('Token')}`,
       },
     };
 
@@ -203,18 +204,18 @@ const Class = () => {
 
   const logOut = () => {
     Router.push({
-      pathname: "/",
+      pathname: '/',
     });
   };
 
   // Delete Class
   const handleDelete = ({ ID }) => {
-    var axios = require("axios");
+    var axios = require('axios');
     var config = {
-      method: "delete",
+      method: 'delete',
       url: `https://group4.altaproject.online/class/${ID}`,
       headers: {
-        Authorization: `Bearer ${getCookie("Token")}`,
+        Authorization: `Bearer ${getCookie('Token')}`,
       },
     };
 
@@ -229,71 +230,73 @@ const Class = () => {
 
   return (
     <div className="condash">
-      <Row>
-        <Col lg={{ span: 4, offset: 0 }} className="col1">
-          <Sidebar />
-        </Col>
-        <Col lg={{ span: 8, offset: 0 }} className="col2">
-          <div className="container">
-            <Greeting title="Class" clickLogOut={() => logOut()} />
-            <div>
-              <div className="searchbutton">
-                <InputGroup>
-                  <Form.Control placeholder="Search" aria-label="Recipient's username with two button addons" />
-                  <Button variant="outline-warning">Search</Button>
-                  <button onClick={() => setModalNew(true)} className="buttonlist1">
-                    Add New
-                  </button>
-                  <AddNew show={modalShowNew} onHide={() => setModalNew(false)} />
-                </InputGroup>
+      <Container className='condash1'>
+        <Row>
+          <Col lg={{ span: 4, offset: 0 }} className="col1">
+            <Sidebar />
+          </Col>
+          <Col lg={{ span: 8, offset: 5 }} className="col2">
+            <div className="container">
+              <Greeting title="Class" clickLogOut={() => logOut()} />
+              <div>
+                <div className="searchbutton">
+                  <InputGroup>
+                    <Form.Control placeholder="Search" aria-label="Recipient's username with two button addons" />
+                    <Button variant="outline-warning">Search</Button>
+                    <button onClick={() => setModalNew(true)} className="buttonlist1">
+                      Add New
+                    </button>
+                    <AddNew show={modalShowNew} onHide={() => setModalNew(false)} />
+                  </InputGroup>
+                </div>
+              </div>
+              <div className="tableclass">
+                {datas.map((data, index) => {
+                  return (
+                    <div key={index}>
+                      <Table striped bordered hover size="sm">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Class Name</th>
+                            <th>Total Mentee</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{data.ID}</td>
+                            <td>{data.Name}</td>
+                            <td>{data.JumlahKelas}</td>
+                            <td>{data.MulaiKelas}</td>
+                            <td>{data.AkhirKelas}</td>
+                            <td>
+                              <AiFillEdit onClick={() => setModalEdit(true, data)} />
+                              <Edit show={modalShowEdit} onHide={() => setModalEdit(false)} />
+                            </td>
+                            <td>
+                              <AiFillDelete onClick={() => handleDelete(data)} />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </div>
+                  );
+                })}
+              </div>
+              <div style={{ float: 'right' }}>
+                <Pagination>
+                  <Pagination.Prev>{'Prev'}</Pagination.Prev>
+                  <Pagination.Next>{'Next'}</Pagination.Next>
+                </Pagination>
               </div>
             </div>
-            <div className="tableclass">
-              {datas.map((data, index) => {
-                return (
-                  <div key={index}>
-                    <Table striped bordered hover size="sm">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Class Name</th>
-                          <th>Total Mentee</th>
-                          <th>Start Date</th>
-                          <th>End Date</th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{data.ID}</td>
-                          <td>{data.Name}</td>
-                          <td>{data.JumlahKelas}</td>
-                          <td>{data.MulaiKelas}</td>
-                          <td>{data.AkhirKelas}</td>
-                          <td>
-                            <AiFillEdit onClick={() => setModalEdit(true, data)} />
-                            <Edit show={modalShowEdit} onHide={() => setModalEdit(false)} />
-                          </td>
-                          <td>
-                            <AiFillDelete onClick={() => handleDelete(data)} />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </Table>
-                  </div>
-                );
-              })}
-            </div>
-            <div style={{ float: "right" }}>
-              <Pagination>
-                <Pagination.Prev>{"Prev"}</Pagination.Prev>
-                <Pagination.Next>{"Next"}</Pagination.Next>
-              </Pagination>
-            </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

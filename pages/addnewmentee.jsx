@@ -18,6 +18,7 @@ const addnewmentee = () => {
     });
   };
 
+
   const [name, setName] = useState("");
   const [class_id, setClass_id] = useState("");
   const [status, setStatus] = useState("");
@@ -36,6 +37,7 @@ const addnewmentee = () => {
 
   const handleAddMentee = () => {
     var axios = require("axios");
+
     var data = JSON.stringify({
       name: name,
       class_id: parseInt(class_id),
@@ -55,21 +57,25 @@ const addnewmentee = () => {
     });
 
     var config = {
-      method: "post",
-      url: "https://group4.altaproject.online/mentee",
+      method: 'post',
+      url: 'https://group4.altaproject.online/mentee',
       headers: {
+
         Authorization: `Bearer ${getCookie("Token")}`,
         "Content-Type": "application/json",
+
       },
       data: data,
     };
 
     axios(config)
+
       .then(function (response) {
         alert("berhasil ditambahahkan");
         Router.push("/menteelist");
       })
       .catch(function (error) {
+
         console.log(error);
       });
   };
@@ -77,10 +83,10 @@ const addnewmentee = () => {
   return (
     <div className="condash">
       <Row>
-        <Col lg={{ span: 4, offset: 0 }} className="col1">
-          <Sidebar />
-        </Col>
-        <Col lg={{ span: 8, offset: 0 }} className="col2">
+       <Col lg={{ span: 4, offset: 0 }} className="col1">
+            <Sidebar />
+          </Col>
+          <Col lg={{ span: 8, offset: 5 }} className="coladd2">
           <div className="container">
             <Greeting title="Add Mentee" clickLogOut={() => logOut()} />
             <Container className="formnewmentee" style={{ justifyContent: "flex-start" }}>
@@ -263,6 +269,7 @@ const addnewmentee = () => {
           </div>
         </Col>
       </Row>
+
     </div>
   );
 };
