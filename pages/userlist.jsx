@@ -86,7 +86,7 @@ function EditNewUser(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Edit New User</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit User</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
