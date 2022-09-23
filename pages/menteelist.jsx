@@ -4,7 +4,7 @@ import Sidebar from "../component/sidebar";
 import { Form, Button, Row, Col, InputGroup, Table, Pagination, Container } from "react-bootstrap";
 import Router from "next/router";
 import { AiFillWallet, AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { getCookie } from "cookies-next";
+import { getCookie, deleteCookie } from "cookies-next";
 
 const menteelist = () => {
   const [datas, setDatas] = useState([]);
@@ -12,6 +12,14 @@ const menteelist = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  // logout
+  const logOut = () => {
+    deleteCookie("Token");
+    Router.push({
+      pathname: "/",
+    });
+  };
 
   // Get API
   const getData = () => {
@@ -77,15 +85,23 @@ const menteelist = () => {
     });
   };
 
-  const menteeLog = () => {
+  const menteeLog = (data) => {
+    console.log("ini data mente", data);
     Router.push({
       pathname: "/menteelog",
-    });
-  };
-
-  const logOut = () => {
-    Router.push({
-      pathname: "/",
+      query: {
+        fullname: data.fullname,
+        address: data.address,
+        homeaddress: data.homeaddress,
+        email: data.email,
+        telegram: data.telegram,
+        id: data.id,
+        classname: data.classname,
+        educationmajor: data.educationmajor,
+        educationgraduate: data.educationgraduate,
+        phone: data.phone,
+        educationcategory: data.educationcategory,
+      },
     });
   };
 
@@ -198,7 +214,7 @@ const menteelist = () => {
                           <td style={{ width: "100px" }}>{data.status}</td>
                           <td style={{ width: "150px" }}>{data.educationcategory}</td>
                           <td style={{ width: "80px" }}>{data.gender}</td>
-                          <td style={{ width: "50px" }} onClick={() => menteeLog()}>
+                          <td style={{ width: "50px" }} onClick={() => menteeLog(data)}>
                             <AiFillWallet />
                           </td>
                           <td style={{ width: "50px" }}>
