@@ -81,8 +81,8 @@ const editmentee = () => {
   };
 
   return (
-    <div className="condash1">
-      <Container>
+    <div className="condash">
+      <Container className="condash1">
         <Row>
           <Col lg={{ span: 4, offset: 0 }} className="col1">
             <Sidebar />
