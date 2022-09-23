@@ -4,7 +4,7 @@ import Sidebar from "../component/sidebar";
 import Greeting from "../component/greeting";
 import Router from "next/router";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { getCookie } from "cookies-next";
+import { getCookie, deleteCookie } from "cookies-next";
 
 function AddNewUser(props) {
   const [name, setName] = useState("");
@@ -134,6 +134,14 @@ const userlist = () => {
   const [datasid, setDatasid] = useState("");
 
   console.log(datasid);
+
+  // logout
+  const logOut = () => {
+    deleteCookie("Token");
+    Router.push({
+      pathname: "/",
+    });
+  };
 
   function EditNewUser(props) {
     const [name, setName] = useState("");
@@ -276,12 +284,6 @@ const userlist = () => {
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  const logOut = () => {
-    Router.push({
-      pathname: "/",
-    });
   };
 
   const handleDelete = ({ id }) => {

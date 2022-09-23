@@ -4,7 +4,7 @@ import Greeting from "../component/greeting";
 import { Table, Modal, Button, Container, Form, Row, Col, InputGroup, Pagination } from "react-bootstrap";
 import Router from "next/router";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { getCookie } from "cookies-next";
+import { getCookie, deleteCookie } from "cookies-next";
 
 const Class = () => {
   const [modalShowNew, setModalNew] = useState(false);
@@ -200,7 +200,9 @@ const Class = () => {
       });
   };
 
+  // logout
   const logOut = () => {
+    deleteCookie("Token");
     Router.push({
       pathname: "/",
     });

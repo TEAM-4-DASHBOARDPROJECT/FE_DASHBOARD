@@ -3,14 +3,16 @@ import Sidebar from "../component/sidebar";
 import Greeting from "../component/greeting";
 import Router from "next/router";
 import { useState } from "react";
-import { getCookie } from "cookies-next";
+import { getCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
 
 const editmentee = () => {
   const router = useRouter();
   const datas = router.query;
 
+  // logout
   const logOut = () => {
+    deleteCookie("Token");
     Router.push({
       pathname: "/",
     });
