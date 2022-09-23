@@ -249,34 +249,36 @@ const Class = () => {
                 </div>
               </div>
               <div className="tableclass">
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr>
+                      <th style={{ width: "25px" }}>No</th>
+                      <th style={{ width: "150px" }}>Class Name</th>
+                      <th style={{ width: "120px" }}>Total Mentee</th>
+                      <th style={{ width: "120px" }}>Start Date</th>
+                      <th style={{ width: "120px" }}>End Date</th>
+                      <th style={{ width: "50px" }}>Edit</th>
+                      <th style={{ width: "50px" }}>Delete</th>
+                    </tr>
+                  </thead>
+                </Table>
                 {datas.map((data, index) => {
                   return (
                     <div key={index}>
-                      <Table striped bordered hover size="sm">
-                        <thead>
-                          <tr>
-                            <th>No</th>
-                            <th>Class Name</th>
-                            <th>Total Mentee</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th></th>
-                            <th></th>
-                          </tr>
-                        </thead>
+                      <Table>
                         <tbody>
                           <tr>
-                            <td>{data.ID}</td>
-                            <td>{data.Name}</td>
-                            <td>{data.JumlahKelas}</td>
-                            <td>{data.MulaiKelas}</td>
-                            <td>{data.AkhirKelas}</td>
-                            <td>
+                            <td style={{ width: "35px" }}>{data.ID}</td>
+                            <td style={{ width: "150px" }}>{data.Name}</td>
+                            <td style={{ width: "120px" }}>{data.JumlahKelas}</td>
+                            <td style={{ width: "120px" }}>{data.MulaiKelas}</td>
+                            <td style={{ width: "120px" }}>{data.AkhirKelas}</td>
+                            <td style={{ width: "50px" }}>
                               <input onClick={() => setDatasid(data)} type="checkbox" />
                               <AiFillEdit onClick={() => setModalEdit(true)} />
                               <Edit show={modalShowEdit} onHide={() => setModalEdit(false)} />
                             </td>
-                            <td>
+                            <td style={{ width: "50px" }}>
                               <AiFillDelete onClick={() => handleDelete(data)} />
                             </td>
                           </tr>

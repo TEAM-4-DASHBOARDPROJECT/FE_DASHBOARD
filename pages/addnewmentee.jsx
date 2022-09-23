@@ -1,41 +1,41 @@
-import { Container, Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
-import Sidebar from '../component/sidebar';
-import Greeting from '../component/greeting';
-import Router from 'next/router';
-import { useState } from 'react';
-import { getCookie } from 'cookies-next';
+import { Container, Form, Row, Col, InputGroup, Button } from "react-bootstrap";
+import Sidebar from "../component/sidebar";
+import Greeting from "../component/greeting";
+import Router from "next/router";
+import { useState } from "react";
+import { getCookie } from "cookies-next";
 
 const addnewmentee = () => {
   const logOut = () => {
     Router.push({
-      pathname: '/',
+      pathname: "/",
     });
   };
 
   const menteelist = () => {
     Router.push({
-      pathname: '/menteelist',
+      pathname: "/menteelist",
     });
   };
 
-  const [name, setName] = useState('');
-  const [class_id, setClass_id] = useState('');
-  const [status, setStatus] = useState('');
-  const [address, setAddress] = useState('');
-  const [homeaddress, setHomeaddress] = useState('');
-  const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('');
-  const [telegram, setTelegram] = useState('');
-  const [phone, setPhone] = useState('');
-  const [emergencyname, setEmergencyname] = useState('');
-  const [emergencyphone, setEmergencyphone] = useState('');
-  const [emergencystatus, setEmergencystatus] = useState('');
-  const [educationcategory, setEducationcategory] = useState('');
-  const [educationmajor, setEducationmajor] = useState('');
-  const [educationgraduate, setEducationgraduate] = useState('');
+  const [name, setName] = useState("");
+  const [class_id, setClass_id] = useState("");
+  const [status, setStatus] = useState("");
+  const [address, setAddress] = useState("");
+  const [homeaddress, setHomeaddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [telegram, setTelegram] = useState("");
+  const [phone, setPhone] = useState("");
+  const [emergencyname, setEmergencyname] = useState("");
+  const [emergencyphone, setEmergencyphone] = useState("");
+  const [emergencystatus, setEmergencystatus] = useState("");
+  const [educationcategory, setEducationcategory] = useState("");
+  const [educationmajor, setEducationmajor] = useState("");
+  const [educationgraduate, setEducationgraduate] = useState("");
 
   const handleAddMentee = () => {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var data = JSON.stringify({
       name: name,
@@ -56,19 +56,19 @@ const addnewmentee = () => {
     });
 
     var config = {
-      method: 'post',
-      url: 'https://group4.altaproject.online/mentee',
+      method: "post",
+      url: "https://group4.altaproject.online/mentee",
       headers: {
-        Authorization: `Bearer ${getCookie('Token')}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getCookie("Token")}`,
+        "Content-Type": "application/json",
       },
       data: data,
     };
 
     axios(config)
       .then(function (response) {
-        alert('berhasil ditambahahkan');
-        Router.push('/menteelist');
+        alert("berhasil ditambahahkan");
+        Router.push("/menteelist");
       })
       .catch(function (error) {
         console.log(error);
@@ -85,7 +85,7 @@ const addnewmentee = () => {
           <Col lg={{ span: 8, offset: 5 }} className="coladd2">
             <div className="container">
               <Greeting title="Add Mentee" clickLogOut={() => logOut()} />
-              <Container className="formnewmentee" style={{ justifyContent: 'flex-start' }}>
+              <Container className="formnewmentee" style={{ justifyContent: "flex-start" }}>
                 <Form>
                   <h4>Biodata</h4>
                   <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -125,10 +125,10 @@ const addnewmentee = () => {
                       <p>Gender :</p>
                     </Form.Label>
                     <Col sm={3}>
-                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Male" name="formVerticalRadios" id="formVerticalRadios1" value="male" />
+                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Male" name="formVerticalRadio" id="formVerticalRadios1" value="male" />
                     </Col>
                     <Col sm={3}>
-                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Female" name="formVerticalRadios" id="formVerticalRadios2" value="female" />
+                      <Form.Check onChange={(e) => setGender(e.target.value)} type="radio" label="Female" name="formVerticalRadio" id="formVerticalRadios2" value="female" />
                     </Col>
                   </Form.Group>
                   <Form.Group as={Row} className="mb-3">
@@ -252,10 +252,10 @@ const addnewmentee = () => {
                 </Form>
               </Container>
               <Container className="save">
-                <Button onClick={menteelist} variant="outline-warning" style={{ margin: '0px 15px' }}>
+                <Button onClick={menteelist} variant="outline-warning" style={{ margin: "0px 15px" }}>
                   Cancel
                 </Button>
-                <Button onClick={handleAddMentee} style={{ background: '#F07539', border: '#f7731c' }} type="submit">
+                <Button onClick={handleAddMentee} style={{ background: "#F07539", border: "#f7731c" }} type="submit">
                   Save
                 </Button>
               </Container>

@@ -1,34 +1,34 @@
-import Image from 'next/image';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import Link from 'next/link';
-import img from '../picture/login.png';
-import { useState } from 'react';
-import Router from 'next/router';
-import { setCookie } from 'cookies-next';
+import Image from "next/image";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import Link from "next/link";
+import img from "../picture/login.png";
+import { useState } from "react";
+import Router from "next/router";
+import { setCookie } from "cookies-next";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    var axios = require('axios');
+    var axios = require("axios");
     var data = JSON.stringify({
       email: email,
       password: password,
     });
     var config = {
-      method: 'post',
-      url: 'https://group4.altaproject.online/login',
+      method: "post",
+      url: "https://group4.altaproject.online/login",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       data: data,
     };
     axios(config)
       .then(function (response) {
-        setCookie('Token', response.data.data);
-        alert('login berhasil');
-        Router.push('/dashboard');
+        setCookie("Token", response.data.data);
+        alert("login berhasil");
+        Router.push("/dashboard");
 
         console.log(JSON.stringify(response.data));
       })
@@ -44,7 +44,7 @@ const LoginPage = () => {
           <Col md={{ span: 7 }} className="contlog">
             <Image src={img} alt="Picture of the author" width="550px" height="625px" />
           </Col>
-          <Col md={{ span: 5 }} style={{ paddingTop: '150px !important' }} className="contlog">
+          <Col md={{ span: 5 }} style={{ paddingTop: "150px !important" }} className="contlog">
             <div>
               <h2>Login to your account!</h2>
             </div>
@@ -72,14 +72,9 @@ const LoginPage = () => {
                   </Col>
                 </Form.Group>
               </Row>
-              <Row style={{ float: 'right' }}>
-                <Form.Group>
-                  <Link href={'/resetpassword'}>Reset Password</Link>
-                </Form.Group>
-              </Row>
             </Form>
             <div>
-              <Button onClick={handleLogin} className="buttonlogin" style={{ background: '#F07539', border: '#f7731c', width: '150px', height: '35px', marginTop: '35px' }}>
+              <Button onClick={handleLogin} className="buttonlogin" style={{ background: "#F07539", border: "#f7731c", width: "150px", height: "35px", marginTop: "35px" }}>
                 <p>LOGIN</p>
               </Button>
             </div>

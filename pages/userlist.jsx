@@ -324,34 +324,36 @@ const userlist = () => {
                 </InputGroup>
               </div>
               <div className="tableclass">
+                <Table striped bordered hover size="sm">
+                  <thead>
+                    <tr>
+                      <th style={{ width: "20px" }}>No.</th>
+                      <th style={{ width: "150px" }}>Full Name</th>
+                      <th style={{ width: "200px" }}>Email</th>
+                      <th style={{ width: "130px" }}>Role</th>
+                      <th style={{ width: "130px" }}>Status</th>
+                      <th style={{ width: "70px" }}>Edit</th>
+                      <th style={{ width: "70px" }}>Delete</th>
+                    </tr>
+                  </thead>
+                </Table>
                 {datas.map((data, index) => {
                   return (
                     <div key={index}>
-                      <Table striped bordered hover size="sm">
-                        <thead>
-                          <tr>
-                            <th>No.</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Status</th>
-                            <th></th>
-                            <th></th>
-                          </tr>
-                        </thead>
+                      <Table>
                         <tbody>
                           <tr>
-                            <td>{data.ID}</td>
-                            <td>{data.name}</td>
-                            <td>{data.email}</td>
-                            <td>{data.role}</td>
-                            <td>{data.status}</td>
-                            <td>
+                            <td style={{ width: "35px" }}>{index}</td>
+                            <td style={{ width: "150px" }}>{data.name}</td>
+                            <td style={{ width: "200px" }}>{data.email}</td>
+                            <td style={{ width: "130px" }}>{data.role}</td>
+                            <td style={{ width: "130px" }}>{data.status}</td>
+                            <td style={{ width: "70px" }}>
                               <input onClick={() => setDatasid(data)} type="checkbox" />
                               <AiFillEdit onClick={() => setModalEdit(true, data)} />
                               <EditNewUser show={modalEdit} onHide={() => setModalEdit(false)} />
                             </td>
-                            <td>
+                            <td style={{ width: "70px" }}>
                               <AiFillDelete onClick={() => handleDelete(data)} />
                             </td>
                           </tr>
